@@ -1,0 +1,13 @@
+*.DS_Store
+*~
+/auto-save-list
+projectile-bookmarks.eld
+.mc-lists.el
+.tern-port
+.tern-project
+elpa
+ac-comphist.dat
+.last-package-update-day
+semanticdb/
+eshell
+tramp
