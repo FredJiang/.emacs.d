@@ -1,3 +1,4 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
 (setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize))
@@ -5,10 +6,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
 ;; elpa
-(require 'package) ;; You might already have this line
+(require 'package)
 (add-to-list 'package-archives 
                '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize) ;; You might already have this line
+(package-initialize)
 
 
 ; <autoinstall> fetch the list of packages available 
@@ -80,9 +81,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'multiple-cursors)
-; (global-set-key (kbd "C-m") 'mc/edit-lines)
 (global-set-key (kbd "C-n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c m") 'mc/edit-lines)
+(global-set-key (kbd "C-c a") 'mc/mark-all-like-this)
+
+
 
 ;; company
 ;; http://company-mode.github.io/
@@ -99,8 +103,8 @@
 
 
 
-
-;; c language
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; c language
 ; https://www.emacswiki.org/emacs/ReformatBuffer
 (defun indent-buffer ()
   (interactive)
@@ -109,6 +113,7 @@
 (global-set-key (kbd "<f12>") 'indent-buffer)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
@@ -118,14 +123,18 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
 
-;; 关闭emacs启动时的页面
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 关闭 emacs 启动时的页面
 (setq inhibit-startup-message 1)
 (setq gnus-inhibit-startup-message 1)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 自动保存
 ; https://www.emacswiki.org/emacs/AutoSave
 (defconst emacs-tmp-dir (format "%s%s%s/" temporary-file-directory "emacs" (user-uid)))
 (setq backup-directory-alist
@@ -147,8 +156,8 @@
       (basic-save-buffer)))))
 (add-hook 'auto-save-hook 'full-auto-save)
 
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; semantic
 ; https://www.gnu.org/software/emacs/manual/semantic.html
 (setq semantic-default-submodes '(global-semanticdb-minor-mode
                                   global-semantic-idle-scheduler-mode
@@ -159,14 +168,11 @@
                                   global-semantic-stickyfunc-mode
                                   global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
-
-
 (global-set-key (kbd "C-c j") 'semantic-ia-fast-jump)
 
 
-; (global-set-key [M-mouse-1] 'mouse-set-point)
-
-;; cscope
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; cscope
 ; http://cscope.sourceforge.net
 ; 在项目根目录下运行 cscope-indexer -r
 ; 快捷键通过 f10 打开菜单看
@@ -174,5 +180,7 @@
   '(lambda ()
     (require 'xcscope)))
 
+
+; (global-set-key [M-mouse-1] 'mouse-set-point)
 
 
