@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
@@ -159,13 +159,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; semantic
 ; https://www.gnu.org/software/emacs/manual/semantic.html
-(setq semantic-default-submodes '(global-semanticdb-minor-mode
+(setq semantic-default-submodes '(
+                                  global-semanticdb-minor-mode
                                   global-semantic-idle-scheduler-mode
                                   global-semantic-idle-summary-mode
                                   global-semantic-idle-completions-mode
                                   global-semantic-decoration-mode
                                   ; global-semantic-highlight-func-mode
-                                  global-semantic-stickyfunc-mode
+                                  ; global-semantic-stickyfunc-mode
                                   global-semantic-mru-bookmark-mode))
 (semantic-mode 1)
 (global-set-key (kbd "C-c j") 'semantic-ia-fast-jump)
@@ -193,3 +194,61 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 (setq scroll-step           1
       scroll-conservatively 10000)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; web-beautify
+; https://github.com/yasuyk/web-beautify
+; sublime 用的 https://github.com/victorporof/Sublime-HTMLPrettify
+; 配置文件用的同一个 ~/.jsbeautifyrc
+
+(require 'web-beautify) ;; Not necessary if using ELPA package
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+(eval-after-load 'js
+  '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
+
+(eval-after-load 'json-mode
+  '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+
+(eval-after-load 'sgml-mode
+  '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+
+(eval-after-load 'web-mode
+  '(define-key web-mode-map (kbd "C-c b") 'web-beautify-html))
+
+(eval-after-load 'css-mode
+  '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
+
+
+
+
+; 补全括号
+(electric-pair-mode t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; highlight-parentheses
+; https://www.emacswiki.org/emacs/HighlightParentheses
+(require 'highlight-parentheses)
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; js2-mode
+; http://xiaohanyu.me/oh-my-emacs/modules/ome-javascript.html#js2-mode
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js2-mode-hook
+  '(lambda () (progn
+    (setq-default js2-basic-offset 2)
+    )))
+
+
+

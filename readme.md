@@ -52,6 +52,3 @@ usage
 
 <kbd>M-x</kbd> `auto-package-update-now` <kbd>[RET]</kbd>
 
-#### plantuml
-
-在 init.el 中
