@@ -252,3 +252,9 @@
 
 
 
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#222")
+; To keep syntax highlighting in the current line
+(set-face-foreground 'highlight nil)
+
+
