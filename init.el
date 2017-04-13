@@ -258,3 +258,16 @@
 (set-face-foreground 'highlight nil)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; clang-format
+; http://clang.llvm.org/docs/ClangFormat.html#vim-integration
+; http://releases.llvm.org/download.html
+(load "~/.emacs.d/mypackages/clang-format.el")
+; (global-set-key (kbd "C-c b") 'clang-format-region)
+(global-set-key (kbd "C-c b") 'clang-format-buffer)
+(setq clang-format-style-option "llvm")
+
+
+
+
+
