@@ -1,3 +1,6 @@
 [submodule "mypackages/neotree"]
 	path = mypackages/neotree
 	url = https://github.com/jaypei/emacs-neotree.git
+[submodule "mypackages/ido-grid-mode"]
+	path = mypackages/ido-grid-mode
+	url = https://github.com/larkery/ido-grid-mode.el.git
