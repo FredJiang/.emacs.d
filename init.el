@@ -266,12 +266,12 @@
 ; http://releases.llvm.org/download.html
 (load "~/.emacs.d/mypackages/clang-format.el")
 ; (global-set-key (kbd "C-c b") 'clang-format-region)
-(global-set-key (kbd "C-c b") 'clang-format-buffer)
+; (global-set-key (kbd "C-c b") 'clang-format-buffer)
+(setq c-mode-hook
+  '(lambda () (progn
+    (global-set-key (kbd "C-c b") 'clang-format-buffer)
+    )))
 (setq clang-format-style-option "llvm")
-
-
-
-
 
 
 
@@ -310,3 +310,16 @@
 ; (require 'helm-config)
 ; (helm-mode 1)
 ; (global-set-key (kbd "M-x") 'helm-M-x)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; https://www.emacswiki.org/emacs/AsmMode
+(defun my-asm-mode-hook ()
+  ;; you can use `comment-dwim' (M-;) for this kind of behaviour anyway
+  (local-unset-key (vector asm-comment-char))
+  ;; asm-mode sets it locally to nil, to "stay closer to the old TAB behaviour".
+  (setq tab-always-indent (default-value 'tab-always-indent)))
+
+(add-hook 'asm-mode-hook #'my-asm-mode-hook)
+
+
