@@ -5,7 +5,7 @@ function install_cscope {
         echo 'install install_cscope'
         cd
         wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
-        tar -zxfv cscope-15.8b.tar.gz
+        tar -zcvf cscope-15.8b.tar.gz
         cd cscope-15.8b
         ./configure
         make
