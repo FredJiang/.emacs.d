@@ -1,11 +1,14 @@
 #! /bin/sh
 
 function install_cscope {
-    if [ ! -f ~/cscope-15.8b ]; then
+    if [ ! -d ~/cscope-15.8b ]; then
         echo 'install install_cscope'
         cd
-        wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
-        tar -zcvf cscope-15.8b.tar.gz
+        echo 'pwd' `pwd`
+        if [ ! -f ~/cscope-15.8b.tar.gz ]; then
+            wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
+        fi
+        tar -zxvf cscope-15.8b.tar.gz
         cd cscope-15.8b
         ./configure
         make
@@ -16,14 +19,44 @@ function install_cscope {
     fi
 }
 
+function install_clang {
+    if which clang >/dev/null; then
+        echo 'clang has installed'
+    else
+        if which yum >/dev/null; then
+            echo 'sudo yum install -y clang'
+            sudo yum install -y clang
+        else
+            echo 'yum not exist'
+        fi
+    fi
+}
+
+function install_clang_format {
+    if which clang-format >/dev/null; then
+        echo 'clang-format has installed'
+    else
+        if which brew >/dev/null; then
+            echo 'brew install clang-format'
+            brew install clang-format
+        else
+            echo 'brew not exist'
+        fi
+    fi
+}
+
+
 case "$OSTYPE" in
   solaris*)
     echo "SOLARIS" ;;
   darwin*)
-    echo "OSX" ;; 
+    echo "OSX"
+    install_clang_format
+    ;; 
   linux*)
     echo "LINUX"
     install_cscope
+    install_clang
     ;;
   bsd*) 
       echo "BSD" ;;
@@ -51,24 +84,18 @@ echo 'cd'
 cd
 echo 'pwd' `pwd`
 
-if which yum >/dev/null; then
-    echo 'sudo yum install -y clang'
-    sudo yum install -y clang
+
+if which js-beautify >/dev/null; then
+    echo 'js-beautify has installed'
 else
-    echo yum not exist
+    if which npm >/dev/null; then
+        echo 'npm -g install js-beautify'
+        npm -g install js-beautify
+    else
+        echo 'npm not exist'
+    fi
 fi
 
-if which brew >/dev/null; then
-    echo 'brew install clang-format'
-    brew install clang-format
-else
-    echo brew not exist
-fi
 
-if which npm >/dev/null; then
-    echo 'npm -g install js-beautify'
-    npm -g install js-beautify
-else
-    echo npm not exist
-fi
+
 
