@@ -4,3 +4,6 @@
 [submodule "mypackages/ido-grid-mode"]
 	path = mypackages/ido-grid-mode
 	url = https://github.com/larkery/ido-grid-mode.el.git
+[submodule "mypackages/disaster"]
+	path = mypackages/disaster
+	url = https://github.com/jart/disaster
