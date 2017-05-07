@@ -330,7 +330,7 @@
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (go-eldoc-setup)
   (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save)
+  ; (add-hook 'before-save-hook 'gofmt-before-save)
   (local-set-key (kbd "C-c j") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 (require 'auto-complete-config)
