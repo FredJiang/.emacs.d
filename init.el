@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete flycheck exec-path-from-shell))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
@@ -337,6 +337,13 @@
 (require 'go-autocomplete)
 
 
+(global-flycheck-mode)
+
+
 (add-to-list 'load-path "~/.emacs.d/mypackages/disaster")
 (require 'disaster)
 (define-key c-mode-base-map (kbd "C-c d") 'disaster)
+
+
+(exec-path-from-shell-initialize)
+
