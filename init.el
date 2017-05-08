@@ -253,11 +253,12 @@
     )))
 
 
-
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "#222")
-; To keep syntax highlighting in the current line
-(set-face-foreground 'highlight nil)
+(unless (display-graphic-p)
+  (global-hl-line-mode 1)
+  (set-face-background 'hl-line "#222")
+  ; To keep syntax highlighting in the current line
+  (set-face-foreground 'highlight nil)
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -346,4 +347,13 @@
 
 
 (exec-path-from-shell-initialize)
+
+
+
+
+; (if (display-graphic-p)
+;     (load-GUI-theme))
+
+; (unless (display-graphic-p)
+;     (load-Terminal-theme))
 
