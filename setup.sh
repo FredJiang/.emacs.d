@@ -52,6 +52,7 @@ case "$OSTYPE" in
   darwin*)
     echo "OSX"
     install_clang_format
+#    cp ~/.emacs.d/mypackages/all-the-icons/fonts/*.ttf /Library/Fonts/
     ;; 
   linux*)
     echo "LINUX"
