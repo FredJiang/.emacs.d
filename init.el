@@ -182,20 +182,17 @@
   '(lambda ()
     (require 'xcscope)))
 
-; https://www.gnu.org/software/emacs/manual/html_node/elisp/Click-Events.html
-; https://www.gnu.org/software/emacs/manual/html_node/emacs/Mouse-Commands.html
-(global-set-key [M-mouse-1] 'mouse-set-point)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; smooth-scrolling
-; https://www.emacswiki.org/emacs/SmoothScrolling
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ; smooth-scrolling
+; ; https://www.emacswiki.org/emacs/SmoothScrolling
+; (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+; (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-(setq scroll-step           1
-      scroll-conservatively 10000)
+; (setq scroll-step           1
+;       scroll-conservatively 10000)
 
 
 
@@ -369,3 +366,58 @@
 ; (require 'font-lock+)
 ; (add-to-list 'load-path "~/.emacs.d/mypackages/memoize")
 ; (require 'memoize)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 鼠标滚动和点击
+; https://gist.github.com/ftrain/8443721
+
+;;; uncomment this line to disable loading of "default.el" at startup
+;; (setq inhibit-default-init t)
+
+;; enable visual feedback on selections
+(setq transient-mark-mode t)
+
+;; default to better frame titles
+(setq frame-title-format
+      (concat  "%b - emacs@" (system-name)))
+
+;; default to unified diffs
+(setq diff-switches "-u")
+
+;; always end a file with a newline
+;(setq require-final-newline 'query)
+
+;;; uncomment for CJK utf-8 support for non-Asian users
+;; (require 'un-define)
+(require 'xt-mouse)
+(xterm-mouse-mode)
+(require 'mouse)
+(xterm-mouse-mode t)
+(defun track-mouse (e))
+
+(setq mouse-wheel-follow-mouse 't)
+
+(defvar alternating-scroll-down-next t)
+(defvar alternating-scroll-up-next t)
+
+(defun alternating-scroll-down-line ()
+  (interactive "@")
+    (when alternating-scroll-down-next
+;      (run-hook-with-args 'window-scroll-functions )
+      (scroll-down-line))
+    (setq alternating-scroll-down-next (not alternating-scroll-down-next)))
+
+(defun alternating-scroll-up-line ()
+  (interactive "@")
+    (when alternating-scroll-up-next
+;      (run-hook-with-args 'window-scroll-functions)
+      (scroll-up-line))
+    (setq alternating-scroll-up-next (not alternating-scroll-up-next)))
+
+(global-set-key (kbd "<mouse-4>") 'alternating-scroll-down-line)
+(global-set-key (kbd "<mouse-5>") 'alternating-scroll-up-line)
+
+
+
