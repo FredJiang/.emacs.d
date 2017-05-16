@@ -97,6 +97,16 @@ else
     fi
 fi
 
+if which eslint >/dev/null; then
+    echo 'eslint has installed'
+else
+    if which npm >/dev/null; then
+        echo 'npm -g install eslint'
+        npm -g install eslint
+    else
+        echo 'npm not exist'
+    fi
+fi
 
 
 

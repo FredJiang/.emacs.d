@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete flycheck exec-path-from-shell magit))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete go-errcheck flycheck exec-path-from-shell magit))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
@@ -331,12 +331,18 @@
   ; (add-hook 'before-save-hook 'gofmt-before-save)
   (local-set-key (kbd "C-c j") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
-(require 'auto-complete-config)
 (require 'go-autocomplete)
+(require 'auto-complete-config)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/mypackages/yasnippet-go")
 
 
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 (global-flycheck-mode)
+
 
 
 (add-to-list 'load-path "~/.emacs.d/mypackages/disaster")
