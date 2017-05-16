@@ -13,3 +13,6 @@
 [submodule "mypackages/memoize"]
 	path = mypackages/memoize
 	url = https://github.com/skeeto/emacs-memoize.git
+[submodule "mypackages/yasnippet-go"]
+	path = mypackages/yasnippet-go
+	url = https://github.com/dominikh/yasnippet-go.git

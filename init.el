@@ -333,6 +333,7 @@
 (add-hook 'go-mode-hook 'go-mode-setup)
 (require 'auto-complete-config)
 (require 'go-autocomplete)
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/mypackages/yasnippet-go")
 
 
 (global-flycheck-mode)
