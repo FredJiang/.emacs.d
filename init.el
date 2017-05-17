@@ -333,14 +333,15 @@
 (add-hook 'go-mode-hook 'go-mode-setup)
 (require 'go-autocomplete)
 (require 'auto-complete-config)
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/mypackages/yasnippet-go")
+
+; 下面这个报错，why？
+; (add-to-list 'yas-snippet-dirs "~/.emacs.d/mypackages/yasnippet-go")
 
 
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
+; 下面这个报错，why？
+; (use-package flycheck
+;   :ensure t
+;   :init (global-flycheck-mode))
 (global-flycheck-mode)
 
 
