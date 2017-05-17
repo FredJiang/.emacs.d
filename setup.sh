@@ -24,6 +24,8 @@ function install_clang {
         echo 'clang has installed'
     else
         if which yum >/dev/null; then
+            echo 'sudo yum install epel-release'
+            sudo yum install epel-release
             echo 'sudo yum install -y clang'
             sudo yum install -y clang
         else
