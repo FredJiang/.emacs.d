@@ -329,6 +329,7 @@
   (go-eldoc-setup)
   (setq gofmt-command "goimports")
   ; (add-hook 'before-save-hook 'gofmt-before-save)
+  (global-set-key (kbd "C-c b") 'gofmt)
   (local-set-key (kbd "C-c j") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 (require 'go-autocomplete)
