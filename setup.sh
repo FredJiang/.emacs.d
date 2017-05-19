@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 function install_cscope {
     if [ ! -d ~/cscope-15.8b ]; then
