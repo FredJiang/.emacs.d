@@ -429,4 +429,6 @@
 (global-set-key (kbd "<mouse-5>") 'alternating-scroll-up-line)
 
 
+; kills to the left
+(global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)))
 
