@@ -432,3 +432,10 @@
 ; kills to the left
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0)))
 
+; http://ergoemacs.org/emacs/whitespace-mode.html
+; make whitespace-mode use just basic coloring
+(setq whitespace-style (quote
+  ; (spaces tabs space-mark tab-mark newline newline-mark)))
+  (spaces tabs space-mark tab-mark)))
+
+(global-whitespace-mode 1)
