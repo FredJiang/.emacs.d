@@ -321,6 +321,7 @@
 ; (add-hook 'asm-mode-hook #'my-asm-mode-hook)
 
 
+(setq-default indent-tabs-mode nil)
 
 
 (defun go-mode-setup ()
