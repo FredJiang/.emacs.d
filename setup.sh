@@ -92,8 +92,8 @@ if which js-beautify >/dev/null; then
     echo 'js-beautify has installed'
 else
     if which npm >/dev/null; then
-        echo 'npm -g install js-beautify'
-        npm -g install js-beautify
+        echo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify'
+        npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify
     else
         echo 'npm not exist'
     fi
@@ -103,8 +103,8 @@ if which eslint >/dev/null; then
     echo 'eslint has installed'
 else
     if which npm >/dev/null; then
-        echo 'npm -g install eslint'
-        npm -g install eslint
+        echo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint'
+        npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint
     else
         echo 'npm not exist'
     fi
