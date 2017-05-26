@@ -440,3 +440,10 @@
   (spaces tabs space-mark tab-mark)))
 
 (global-whitespace-mode 1)
+
+
+(require 'grep)
+; find . -type f ! -path "*/node_modules/*" -exec grep -nH -e app {} +
+(grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/node_modules/*\" -exec grep -nH -e  {} +" . 61))
+
+
