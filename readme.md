@@ -1,54 +1,27 @@
-#### 命令汇总
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `undo-tree` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `window-numbering` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `projectile` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `multiple-cursors` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `company` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `auto-complete` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `exec-path-from-shell` <kbd>[RET]</kbd>
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `auto-package-update` <kbd>[RET]</kbd>
 
 
+还没安装 emacs 的，可以参考下面链接安装
 
-#### [neotree](https://www.emacswiki.org/emacs/NeoTree)
+[emacs 源码安装](http://fred.itxfd.com/2016/11/16/emacs-%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/)
+
+
+安装完后，下载配置文件
 
 ```
-cd ~/.emacs.d/mypackages/
-git clone https://github.com/jaypei/emacs-neotree.git neotree
+cd && \
+git clone https://github.com/FredJiang/.emacs.d.git && \
+cd .emacs.d && \
+git submodule init && \
+git submodule update && \
+./setup.sh
 ```
 
+#### 错误处理
 
+如果报错
 
-#### [projectile](https://github.com/bbatsov/projectile)
+> File error: http://stable.melpa.org/packages/async-1.9.tar, Not found
 
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `projectile` <kbd>[RET]</kbd>
+在 emacs 中运行如下命令
 
-
-
-#### [multiple-cursors](https://github.com/magnars/multiple-cursors.el)
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `multiple-cursors` <kbd>[RET]</kbd>
-
-
-
-#### [company](http://company-mode.github.io/)
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `company` <kbd>[RET]</kbd>
-
-
-#### [auto-package-update](https://github.com/rranelli/auto-package-update.el)
-
-<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `auto-package-update` <kbd>[RET]</kbd>
-
-usage
-
-<kbd>M-x</kbd> `auto-package-update-now` <kbd>[RET]</kbd>
-
+<kbd>M-x</kbd> `package-refresh-contents` 

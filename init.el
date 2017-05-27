@@ -443,7 +443,6 @@
 
 
 (require 'grep)
-; find . -type f ! -path "*/node_modules/*" -exec grep -nH -e app {} +
 (grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/node_modules/*\" -exec grep -nHi -e  -C 2 {} +" . 62))
 
 
