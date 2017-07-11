@@ -462,8 +462,8 @@
 
 
 (require 'grep)
-(grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/node_modules/*\" -exec grep -nHi -C 2 -e  {} +" . 67))
-(grep-apply-setting 'grep-command "grep -nHi -C 2 -e ")
+(grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/node_modules/*\" -exec grep -nH -C 2 -e  {} +" . 66))
+(grep-apply-setting 'grep-command "grep -nH -C 2 -e ")
 
 
 (custom-set-variables
