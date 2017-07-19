@@ -503,7 +503,7 @@
 
 
 
-
+(set-default 'truncate-lines t)
 
 
 (custom-set-variables
