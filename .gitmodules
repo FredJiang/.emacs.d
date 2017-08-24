@@ -16,3 +16,12 @@
 [submodule "mypackages/yasnippet-go"]
 	path = mypackages/yasnippet-go
 	url = https://github.com/dominikh/yasnippet-go.git
+[submodule "mypackages/evil"]
+	path = mypackages/evil
+	url = https://github.com/emacs-evil/evil
+[submodule "mypackages/airline-themes"]
+	path = mypackages/airline-themes
+	url = https://github.com/AnthonyDiGirolamo/airline-themes.git
+[submodule "mypackages/powerline"]
+	path = mypackages/powerline
+	url = https://github.com/milkypostman/powerline.git

@@ -507,6 +507,27 @@
 
 
 
+(require 'goto-chg)
+(global-set-key [(control ?.)] 'goto-last-change)
+(global-set-key [(control ?,)] 'goto-last-change-reverse)
+
+(add-to-list 'load-path "~/.emacs.d/mypackages/evil")
+(require 'evil)
+(evil-mode 1)
+
+
+(add-to-list 'load-path "~/.emacs.d/mypackages/powerline")
+(require 'powerline)
+; (powerline-default-theme)
+
+(add-to-list 'load-path "~/.emacs.d/mypackages/airline-themes")
+(require 'airline-themes)
+(load-theme 'airline-light)
+
+
+
+
+
 ; http://rejeep.github.io/emacs/elisp/2010/03/11/duplicate-current-line-or-region-in-emacs.html
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
@@ -530,6 +551,9 @@ there's a region, all lines that region covers will be duplicated."
 
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
+
+
+; auto produced
 
 
 (custom-set-variables
