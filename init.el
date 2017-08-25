@@ -553,6 +553,7 @@ there's a region, all lines that region covers will be duplicated."
 
 
 
+; (list-matching-lines-default-context-lines 2)
 ; auto produced
 
 
