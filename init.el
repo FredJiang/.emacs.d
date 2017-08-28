@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete go-errcheck flycheck exec-path-from-shell magit web-mode))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete go-errcheck flycheck exec-path-from-shell magit web-mode memoize))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
@@ -384,17 +384,17 @@
 ;     (load-Terminal-theme))
 
 
-; (add-to-list 'load-path "~/.emacs.d/mypackages/all-the-icons")
-; (require 'all-the-icons)
+(add-to-list 'load-path "~/.emacs.d/mypackages/all-the-icons")
+(require 'all-the-icons)
 ; ; https://elpa.emacs-china.org/packages/all-the-icons/
 ; ; * Description: A library for inserting Developer icons
 ; ; * Home page: https://github.com/domtronn/all-the-icons.el
 ; ; * Versions: 2.5.2 (melpa-stable), 20170505.13 (melpa)
 ; ; * Dependencies: emacs-24.3, font-lock+-0, memoize-1.0.1
 ; ; https://elpa.emacs-china.org/packages/font-lock+/
-; (require 'font-lock+)
+(require 'font-lock+)
 ; (add-to-list 'load-path "~/.emacs.d/mypackages/memoize")
-; (require 'memoize)
+(require 'memoize)
 
 
 
