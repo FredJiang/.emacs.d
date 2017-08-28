@@ -45,6 +45,27 @@
 
 (add-to-list 'load-path "~/.emacs.d/mypackages")
 
+
+; (if (display-graphic-p)
+;     (load-GUI-theme))
+
+; (unless (display-graphic-p)
+;     (load-Terminal-theme))
+
+
+(add-to-list 'load-path "~/.emacs.d/mypackages/all-the-icons")
+(require 'all-the-icons)
+; ; https://elpa.emacs-china.org/packages/all-the-icons/
+; ; * Description: A library for inserting Developer icons
+; ; * Home page: https://github.com/domtronn/all-the-icons.el
+; ; * Versions: 2.5.2 (melpa-stable), 20170505.13 (melpa)
+; ; * Dependencies: emacs-24.3, font-lock+-0, memoize-1.0.1
+; ; https://elpa.emacs-china.org/packages/font-lock+/
+(require 'font-lock+)
+; (add-to-list 'load-path "~/.emacs.d/mypackages/memoize")
+(require 'memoize)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; neotree
 ;; https://www.emacswiki.org/emacs/NeoTree
@@ -66,6 +87,7 @@
     (custom-set-variables)
   )
 
+; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -377,24 +399,7 @@
 
 
 
-; (if (display-graphic-p)
-;     (load-GUI-theme))
 
-; (unless (display-graphic-p)
-;     (load-Terminal-theme))
-
-
-(add-to-list 'load-path "~/.emacs.d/mypackages/all-the-icons")
-(require 'all-the-icons)
-; ; https://elpa.emacs-china.org/packages/all-the-icons/
-; ; * Description: A library for inserting Developer icons
-; ; * Home page: https://github.com/domtronn/all-the-icons.el
-; ; * Versions: 2.5.2 (melpa-stable), 20170505.13 (melpa)
-; ; * Dependencies: emacs-24.3, font-lock+-0, memoize-1.0.1
-; ; https://elpa.emacs-china.org/packages/font-lock+/
-(require 'font-lock+)
-; (add-to-list 'load-path "~/.emacs.d/mypackages/memoize")
-(require 'memoize)
 
 
 

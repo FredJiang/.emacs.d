@@ -85,7 +85,6 @@ cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/
 
 echo 'cd'
 cd
-echo 'pwd' `pwd`
 
 
 if which js-beautify >/dev/null; then
@@ -108,6 +107,12 @@ else
     else
         echo 'npm not exist'
     fi
+fi
+
+
+if [ ! -d "~/.all-the-icons-fonts" ]; then
+    echo 'mkdir ~/.all-the-icons-fonts'
+          mkdir ~/.all-the-icons-fonts
 fi
 
 
