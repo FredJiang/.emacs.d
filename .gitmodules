@@ -10,9 +10,6 @@
 [submodule "mypackages/all-the-icons"]
 	path = mypackages/all-the-icons
 	url = https://github.com/domtronn/all-the-icons.el.git
-[submodule "mypackages/memoize"]
-	path = mypackages/memoize
-	url = https://github.com/skeeto/emacs-memoize.git
 [submodule "mypackages/yasnippet-go"]
 	path = mypackages/yasnippet-go
 	url = https://github.com/dominikh/yasnippet-go.git
