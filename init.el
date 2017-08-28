@@ -522,7 +522,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/mypackages/airline-themes")
 (require 'airline-themes)
-(load-theme 'airline-light)
+(load-theme 'airline-light t)
 
 
 
