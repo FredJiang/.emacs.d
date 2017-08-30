@@ -531,6 +531,9 @@
 
 
 
+(add-to-list 'load-path "~/.emacs.d/mypackages/highlight-thing")
+(require 'highlight-thing)
+(global-highlight-thing-mode)
 
 
 ; http://rejeep.github.io/emacs/elisp/2010/03/11/duplicate-current-line-or-region-in-emacs.html

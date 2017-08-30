@@ -22,3 +22,6 @@
 [submodule "mypackages/powerline"]
 	path = mypackages/powerline
 	url = https://github.com/milkypostman/powerline.git
+[submodule "mypackages/highlight-thing"]
+	path = mypackages/highlight-thing
+	url = https://github.com/fgeller/highlight-thing.el.git
