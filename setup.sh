@@ -110,10 +110,11 @@ else
 fi
 
 
-if [ ! -d "~/.all-the-icons-fonts" ]; then
-    echo 'mkdir ~/.all-the-icons-fonts'
-          mkdir ~/.all-the-icons-fonts
+if [ -d $HOME/.all-the-icons-fonts ]
+    then
+        echo "$HOME/.all-the-icons-fonts exist"
+    else
+        echo "$HOME/.all-the-icons-fonts not exist"
+        echo "mkdir $HOME/.all-the-icons-fonts"
+              mkdir $HOME/.all-the-icons-fonts
 fi
-
-
-

@@ -519,7 +519,7 @@
 (add-to-list 'load-path "~/.emacs.d/mypackages/evil")
 (require 'evil)
 (evil-mode 1)
-
+(setq evil-default-state 'emacs)
 
 (add-to-list 'load-path "~/.emacs.d/mypackages/powerline")
 (require 'powerline)
