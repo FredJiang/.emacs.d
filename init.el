@@ -30,7 +30,7 @@
 (unless (display-graphic-p)
   (defun fix-linum-color ()
     (interactive)
-    (setq linum-format "%d  ")
+    (setq linum-format "%4d\u2502")
     (set-face-attribute 'linum nil :foreground "white"))
   (add-hook 'linum-mode-hook 'fix-linum-color)
 )
@@ -459,11 +459,17 @@
 
 ; http://ergoemacs.org/emacs/whitespace-mode.html
 ; make whitespace-mode use just basic coloring
-(setq whitespace-style (quote
-  ; (spaces tabs space-mark tab-mark newline newline-mark)))
-  (spaces tabs space-mark tab-mark)))
+; (setq whitespace-style (quote
+;   ; (spaces tabs space-mark tab-mark newline newline-mark)))
+;   (spaces tabs space-mark tab-mark)))
 
 (global-whitespace-mode 1)
+; https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00461.html
+; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
+(set-face-background 'whitespace-space nil)
+(set-face-foreground 'whitespace-space "gray30")
+(set-face-background 'whitespace-newline nil)
+(set-face-foreground 'whitespace-newline "gray30")
 
 
 (require 'grep)
