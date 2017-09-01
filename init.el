@@ -467,9 +467,9 @@
 ; https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00461.html
 ; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
 (set-face-background 'whitespace-space nil)
-(set-face-foreground 'whitespace-space "gray30")
+(set-face-foreground 'whitespace-space "gray10")
 (set-face-background 'whitespace-newline nil)
-(set-face-foreground 'whitespace-newline "gray30")
+(set-face-foreground 'whitespace-newline "gray10")
 
 
 (require 'grep)
