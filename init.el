@@ -515,7 +515,13 @@
 
 
 (set-default 'truncate-lines t)
-
+; To have emacs wordwrap OFF add:
+;  (setq-default truncate-lines 1)
+; To have emacs word-wrap ON add:
+;  (setq-default truncate-lines 0)
+(add-hook 'eshell-mode-hook
+          (lambda () 
+             (setq truncate-lines nil)))
 
 
 (require 'goto-chg)
@@ -565,6 +571,21 @@ there's a region, all lines that region covers will be duplicated."
 
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
+
+(require 'org)
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . org-mode))
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/study.org"
+                             "~/org/todo.org"
+                             "~/org/home.org"))
 
 
 ; (list-matching-lines-default-context-lines 2)
