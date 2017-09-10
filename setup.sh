@@ -1,5 +1,22 @@
 #! /bin/bash
 
+
+echo 'git pull'
+git pull
+
+
+
+echo 'git submodule init'
+git submodule init
+
+
+
+echo 'git submodule update'
+git submodule update
+
+
+
+
 function install_cscope {
     if [ ! -d ~/cscope-15.8b ]; then
         echo 'install install_cscope'
