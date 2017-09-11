@@ -459,17 +459,17 @@
 
 ; http://ergoemacs.org/emacs/whitespace-mode.html
 ; make whitespace-mode use just basic coloring
-; (setq whitespace-style (quote
-;   ; (spaces tabs space-mark tab-mark newline newline-mark)))
-;   (spaces tabs space-mark tab-mark)))
+(setq whitespace-style (quote
+  ; (spaces tabs space-mark tab-mark newline newline-mark)))
+  (spaces tabs space-mark tab-mark)))
 
 (global-whitespace-mode 1)
 ; https://lists.gnu.org/archive/html/bug-gnu-emacs/2016-09/msg00461.html
 ; (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
-(set-face-background 'whitespace-space nil)
-(set-face-foreground 'whitespace-space "gray10")
-(set-face-background 'whitespace-newline nil)
-(set-face-foreground 'whitespace-newline "gray10")
+; (set-face-background 'whitespace-space nil)
+; (set-face-foreground 'whitespace-space "gray10")
+; (set-face-background 'whitespace-newline nil)
+; (set-face-foreground 'whitespace-newline "gray10")
 
 
 (require 'grep)
