@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete go-errcheck flycheck exec-path-from-shell magit web-mode))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-ubiquitous smex go-mode go-eldoc go-autocomplete go-errcheck flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ; <autoinstall> list the repositories containing them
@@ -586,6 +586,25 @@ there's a region, all lines that region covers will be duplicated."
                              "~/org/study.org"
                              "~/org/todo.org"
                              "~/org/home.org"))
+
+
+
+; irony company-irony company-irony-c-headers flycheck-irony
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+
 
 
 ; (list-matching-lines-default-context-lines 2)
