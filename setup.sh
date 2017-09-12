@@ -45,6 +45,12 @@ function install_clang {
             sudo yum install epel-release
             echo 'sudo yum install -y clang'
             sudo yum install -y clang
+
+            echo 'sudo yum install -y clang-devel'
+                  sudo yum install -y clang-devel
+
+            echo 'sudo yum groupinstall -y "Development Tools"'
+                  sudo yum groupinstall -y "Development Tools"
         else
             echo 'yum not exist'
         fi
@@ -58,6 +64,7 @@ function install_clang_format {
         if which brew >/dev/null; then
             echo 'brew install clang-format'
             brew install clang-format
+            brew install llvm
         else
             echo 'brew not exist'
         fi
