@@ -87,6 +87,12 @@
     (custom-set-variables)
   )
 
+
+; (defun my/neotree-hook (_unused)
+;   (linum-mode))
+; (add-hook 'neo-after-create-hook 'my/neotree-hook)
+; (add-hook 'neo-after-create-hook 'linum-mode)
+
 ; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -534,6 +540,12 @@
 
 (add-to-list 'load-path "~/.emacs.d/mypackages/evil")
 (require 'evil)
+
+(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+
 (evil-mode 1)
 (setq evil-default-state 'emacs)
 
