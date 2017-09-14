@@ -72,6 +72,35 @@ function install_clang_format {
 }
 
 
+function install_the_silver_searcher {
+    if which ag >/dev/null; then
+        echo 'ag has installed'
+    else
+        if which brew >/dev/null; then
+            echo 'brew install the_silver_searcher'
+                  brew install the_silver_searcher
+        else
+            echo 'brew not exist'
+        fi
+
+        if which yum >/dev/null; then
+            echo 'sudo yum install -y the_silver_searcher'
+                  sudo yum install -y the_silver_searcher
+        else
+            echo 'yum not exist'
+        fi
+
+        if which apt-get >/dev/null; then
+            echo 'sudo apt-get install -y silversearcher-ag'
+                  sudo apt-get install -y silversearcher-ag
+        else
+            echo 'apt-get not exist'
+        fi
+    fi
+}
+
+
+
 case "$OSTYPE" in
   solaris*)
     echo "SOLARIS" ;;
@@ -93,6 +122,7 @@ case "$OSTYPE" in
     echo "unknown: $OSTYPE" ;;
 esac
 
+install_the_silver_searcher
 
 echo 'cd ~/.emacs.d'
 cd ~/.emacs.d
