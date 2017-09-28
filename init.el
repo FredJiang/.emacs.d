@@ -231,47 +231,56 @@
 
 
 
-
-; http://web-mode.org/
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-
-
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; web-beautify
-; https://github.com/yasuyk/web-beautify
-; sublime 用的 https://github.com/victorporof/Sublime-HTMLPrettify
-; 配置文件用的同一个 ~/.jsbeautifyrc
-
-(require 'web-beautify) ;; Not necessary if using ELPA package
-(eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
-;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
-(eval-after-load 'js
-  '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
-
-(eval-after-load 'json-mode
-  '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
-
-(eval-after-load 'sgml-mode
-  '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
-
-(eval-after-load 'web-mode
-  '(define-key web-mode-map (kbd "C-c b") 'web-beautify-html))
-
-(eval-after-load 'css-mode
-  '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
+; web-mode                                                                     ;
+; http://web-mode.org/                                                         ;
+(require 'web-mode)                                                            ;
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))                     ;
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))                 ;
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))                   ;
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))                   ;
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))                       ;
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))                  ;
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))                    ;
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))                     ;
+                                                                               ;
+                                                                               ;
+                                                                               ;
+; js2-mode                                                                     ;
+; http://xiaohanyu.me/oh-my-emacs/modules/ome-javascript.html#js2-mode         ;
+(require 'js2-mode)                                                            ;
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))                        ;
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))                          ;
+(setq js2-mode-hook                                                            ;
+  '(lambda () (progn                                                           ;
+    (setq-default js2-basic-offset 2)                                          ;
+    )))                                                                        ;
+                                                                               ;
+                                                                               ;
+                                                                               ;
+; web-beautify                                                                 ;
+; https://github.com/yasuyk/web-beautify                                       ;
+; sublime 用的 https://github.com/victorporof/Sublime-HTMLPrettify             ;
+; 配置文件用的同一个 ~/.jsbeautifyrc                                           ;
+(require 'web-beautify) ;; Not necessary if using ELPA package                 ;
+(eval-after-load 'js2-mode                                                     ;
+  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))                   ;
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')                      ;
+(eval-after-load 'js                                                           ;
+  '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))                    ;
+                                                                               ;
+(eval-after-load 'json-mode                                                    ;
+  '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))                  ;
+                                                                               ;
+(eval-after-load 'sgml-mode                                                    ;
+  '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))                ;
+                                                                               ;
+(eval-after-load 'web-mode                                                     ;
+  '(define-key web-mode-map (kbd "C-c b") 'web-beautify-html))                 ;
+                                                                               ;
+(eval-after-load 'css-mode                                                     ;
+  '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))                  ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
@@ -290,16 +299,7 @@
 (global-highlight-parentheses-mode t)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; js2-mode
-; http://xiaohanyu.me/oh-my-emacs/modules/ome-javascript.html#js2-mode
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(setq js2-mode-hook
-  '(lambda () (progn
-    (setq-default js2-basic-offset 2)
-    )))
+
 
 
 (unless (display-graphic-p)
