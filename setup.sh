@@ -1,174 +1,212 @@
 #! /bin/bash
 
 
-echo 'git pull'
-git pull
+function echoCo {
+    echo -e "\033[32m$1\033[0m"
+}
 
 
-
-echo 'git submodule init'
-git submodule init
-
-
-
-echo 'git submodule update'
-git submodule update
+function echoMe {
+    echo -e "\033[35m$1\033[0m"
+}
 
 
+echoCo 'git pull'
+        git pull
+
+
+echoCo 'git submodule init'
+        git submodule init
+
+
+echoCo 'git submodule update'
+        git submodule update
 
 
 function install_cscope {
     if [ ! -d ~/cscope-15.8b ]; then
-        echo 'install install_cscope'
-        cd
-        echo 'pwd' `pwd`
+        echoMe 'install_cscope'
+
+        echoCo 'cd'
+                cd
+
         if [ ! -f ~/cscope-15.8b.tar.gz ]; then
-            wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
+            echoCo 'wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"'
+                    wget "https://jaist.dl.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
         fi
-        tar -zxvf cscope-15.8b.tar.gz
-        cd cscope-15.8b
-        ./configure
-        make
-        sudo make install
-        sudo cp contrib/xcscope/cscope-indexer /usr/local/bin/
-        sudo chmod +x /usr/local/bin/cscope-indexer
-        cp contrib/xcscope/xcscope.el ~/.emacs.d/mypackages/
+
+        echoCo 'tar -zxvf cscope-15.8b.tar.gz'
+                tar -zxvf cscope-15.8b.tar.gz
+        echoCo 'cd cscope-15.8b'
+                cd cscope-15.8b
+        echoCo './configure'
+                ./configure
+        echoCo 'make'
+                make
+        echoCo 'sudo make install'
+                sudo make install
+        echoCo 'sudo cp contrib/xcscope/cscope-indexer /usr/local/bin/'
+                sudo cp contrib/xcscope/cscope-indexer /usr/local/bin/
+        echoCo 'sudo chmod +x /usr/local/bin/cscope-indexer'
+                sudo chmod +x /usr/local/bin/cscope-indexer
+        echoCo 'cp contrib/xcscope/xcscope.el ~/.emacs.d/mypackages/'
+                cp contrib/xcscope/xcscope.el ~/.emacs.d/mypackages/
     fi
 }
+
 
 function install_clang {
-    if which clang >/dev/null; then
-        echo 'clang has installed'
+    if which clang > /dev/null; then
+        echoMe 'clang has installed'
     else
-        if which yum >/dev/null; then
-            echo 'sudo yum install epel-release'
-            sudo yum install epel-release
-            echo 'sudo yum install -y clang'
-            sudo yum install -y clang
-
-            echo 'sudo yum install -y clang-devel'
-                  sudo yum install -y clang-devel
-
-            echo 'sudo yum groupinstall -y "Development Tools"'
-                  sudo yum groupinstall -y "Development Tools"
+        if which yum > /dev/null; then
+            echoCo 'sudo yum install epel-release'
+                    sudo yum install epel-release
+            echoCo 'sudo yum install -y clang'
+                    sudo yum install -y clang
+            echoCo 'sudo yum install -y clang-devel'
+                    sudo yum install -y clang-devel
+            echoCo 'sudo yum groupinstall -y "Development Tools"'
+                    sudo yum groupinstall -y "Development Tools"
         else
-            echo 'yum not exist'
+            echoMe 'yum not exist'
         fi
     fi
 }
 
+
 function install_clang_format {
-    if which clang-format >/dev/null; then
-        echo 'clang-format has installed'
+    if which clang-format > /dev/null; then
+        echoMe 'clang-format has installed'
     else
-        if which brew >/dev/null; then
-            echo 'brew install clang-format'
-            brew install clang-format
-            brew install llvm
+        if which brew > /dev/null; then
+            echoCo 'brew install clang-format'
+                    brew install clang-format
+            echoCo 'brew install llvm'
+                    brew install llvm
         else
-            echo 'brew not exist'
+            echoMe 'brew not exist'
         fi
     fi
 }
 
 
 function install_the_silver_searcher {
-    if which ag >/dev/null; then
-        echo 'ag has installed'
+    if which ag > /dev/null; then
+        echoMe 'ag has installed'
     else
-        if which brew >/dev/null; then
-            echo 'brew install the_silver_searcher'
-                  brew install the_silver_searcher
+        if which brew > /dev/null; then
+            echoCo 'brew install the_silver_searcher'
+                    brew install the_silver_searcher
         else
-            echo 'brew not exist'
+            echoMe 'brew not exist'
         fi
 
-        if which yum >/dev/null; then
-            echo 'sudo yum install -y the_silver_searcher'
-                  sudo yum install -y the_silver_searcher
+        if which yum > /dev/null; then
+            echoCo 'sudo yum install -y the_silver_searcher'
+                    sudo yum install -y the_silver_searcher
         else
-            echo 'yum not exist'
+            echoMe 'yum not exist'
         fi
 
-        if which apt-get >/dev/null; then
-            echo 'sudo apt-get install -y silversearcher-ag'
-                  sudo apt-get install -y silversearcher-ag
+        if which apt-get > /dev/null; then
+            echoCo 'sudo apt-get install -y silversearcher-ag'
+                    sudo apt-get install -y silversearcher-ag
         else
-            echo 'apt-get not exist'
+            echoMe 'apt-get not exist'
         fi
     fi
 }
 
 
-
 case "$OSTYPE" in
   solaris*)
-    echo "SOLARIS" ;;
+    echoMe "SOLARIS"
+    ;;
   darwin*)
-    echo "OSX"
+    echoMe "OSX"
     install_clang_format
-#    cp ~/.emacs.d/mypackages/all-the-icons/fonts/*.ttf /Library/Fonts/
     ;; 
   linux*)
-    echo "LINUX"
+    echoMe "LINUX"
     install_cscope
     install_clang
     ;;
   bsd*) 
-      echo "BSD" ;;
+    echoMe "BSD"
+    ;;
   msys*) 
-     echo "WINDOWS" ;;
+    echoMe "WINDOWS"
+    ;;
   *)
-    echo "unknown: $OSTYPE" ;;
+    echoMe "unknown: $OSTYPE"
+    ;;
 esac
+
 
 install_the_silver_searcher
 
-echo 'cd ~/.emacs.d'
-cd ~/.emacs.d
-echo 'pwd' `pwd`
 
-echo 'git submodule init'
-git submodule init
-
-echo 'git submodule update'
-git submodule update
-
-echo 'cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/'
-cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/
-
-echo 'cd'
-cd
+echoCo 'cd ~/.emacs.d'
+        cd ~/.emacs.d
+echoCo 'cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/'
+        cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/
 
 
-if which js-beautify >/dev/null; then
-    echo 'js-beautify has installed'
+echoCo 'cd'
+        cd
+
+
+if which js-beautify > /dev/null; then
+    echoMe 'js-beautify has installed'
 else
-    if which npm >/dev/null; then
-        echo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify'
-        npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify
+    if which npm > /dev/null; then
+        echoCo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify'
+                npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify
     else
-        echo 'npm not exist'
-    fi
-fi
-
-if which eslint >/dev/null; then
-    echo 'eslint has installed'
-else
-    if which npm >/dev/null; then
-        echo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint'
-        npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint
-    else
-        echo 'npm not exist'
+        echoMe 'npm not exist'
     fi
 fi
 
 
-if [ -d $HOME/.all-the-icons-fonts ]
-    then
-        echo "$HOME/.all-the-icons-fonts exist"
+if which eslint > /dev/null; then
+    echoMe 'eslint has installed'
+else
+    if which npm > /dev/null; then
+        echoCo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint'
+                npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint
     else
-        echo "$HOME/.all-the-icons-fonts not exist"
-        echo "mkdir $HOME/.all-the-icons-fonts"
-              mkdir $HOME/.all-the-icons-fonts
+        echoMe 'npm not exist'
+    fi
 fi
+
+
+if [ -d ~/.all-the-icons-fonts ]
+then
+    echoMe "~/.all-the-icons-fonts exist"
+else
+    echoMe "~/.all-the-icons-fonts not exist"
+
+    echoCo "mkdir ~/.all-the-icons-fonts"
+            mkdir ~/.all-the-icons-fonts
+fi
+
+
+if [ ! -e ~/package.json ]
+then
+    echoCo 'cp ~/.emacs.d/package.json ~/'
+            cp ~/.emacs.d/package.json ~/
+    echoCo 'cd'
+            cd
+    echoCo 'npm install'
+            npm install
+fi
+
+
+if [ ! -e ~/.eslintrc.js ]
+then
+    echoCo 'cp ~/.emacs.d/.eslintrc.js ~/'
+            cp ~/.emacs.d/.eslintrc.js ~/
+fi
+
+
