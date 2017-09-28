@@ -2,12 +2,12 @@
 
 
 function echoCo {
-    echo -e "\033[32m$1\033[0m"
+    echo -e "\033[32m$@\033[0m"
 }
 
 
 function echoMe {
-    echo -e "\033[35m$1\033[0m"
+    echo -e "\033[35m$@\033[0m"
 }
 
 
