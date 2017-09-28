@@ -1,10 +1,15 @@
 module.exports = {
   "extends": "standard",
   "globals": {
-    "g_logger": true,
-    "g_projectDir": true
+    "gLogger": true,
+    "gProjectDir": true
   },
   "rules": {
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     // "camelcase": 0,
     // "semi": [2, "never"]
     // "semi": [2, "always"]

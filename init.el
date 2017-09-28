@@ -262,6 +262,7 @@
 ; https://github.com/yasuyk/web-beautify                                       ;
 ; sublime 用的 https://github.com/victorporof/Sublime-HTMLPrettify             ;
 ; 配置文件用的同一个 ~/.jsbeautifyrc                                           ;
+; sublime 换成 ESLint-Formatter 了                                             ;
 (require 'web-beautify) ;; Not necessary if using ELPA package                 ;
 (eval-after-load 'js2-mode                                                     ;
   '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))                   ;
