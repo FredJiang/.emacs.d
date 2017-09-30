@@ -1,6 +1,6 @@
 {
   "all": {
-    "end_with_newline": false,
+    "end_with_newline": true,
     "indent_char": " ",
     "indent_size": 2
   },
