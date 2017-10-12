@@ -203,10 +203,8 @@ then
 fi
 
 
-if [ ! -e ~/.eslintrc.js ]
-then
-    echoCo 'cp ~/.emacs.d/.eslintrc.js ~/'
-            cp ~/.emacs.d/.eslintrc.js ~/
-fi
+
+echoCo 'cp ~/.emacs.d/.eslintrc.js ~/'
+        cp ~/.emacs.d/.eslintrc.js ~/
 
 
