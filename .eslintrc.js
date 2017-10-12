@@ -12,8 +12,8 @@ module.exports = {
     }],
     // "camelcase": 0,
     // "semi": [2, "never"]
-    // "semi": [2, "always"]
+    "semi": [2, "always"]
     // disable the rule
-    "semi": 0
+    // "semi": 0
   }
 };
