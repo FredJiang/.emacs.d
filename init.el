@@ -44,7 +44,7 @@
     (set-face-attribute 'linum nil :foreground "white"))
   (add-hook 'nlinum-mode-hook 'fix-nlinum-color)
 )
-
+(add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
