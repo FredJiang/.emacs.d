@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -25,15 +25,24 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ;; 通用
-(global-linum-mode 1) ; always show line numbers
 (column-number-mode 1)
 
+; (global-linum-mode 1) ; always show line numbers
+; (unless (display-graphic-p)
+;   (defun fix-linum-color ()
+;     (interactive)
+;     (setq linum-format "%4d\u2502")
+;     (set-face-attribute 'linum nil :foreground "white"))
+;   (add-hook 'linum-mode-hook 'fix-linum-color)
+; )
+
+(global-nlinum-mode 1) ; always show line numbers
 (unless (display-graphic-p)
-  (defun fix-linum-color ()
+  (defun fix-nlinum-color ()
     (interactive)
-    (setq linum-format "%4d\u2502")
+    (setq nlinum-format "%4d\u2502")
     (set-face-attribute 'linum nil :foreground "white"))
-  (add-hook 'linum-mode-hook 'fix-linum-color)
+  (add-hook 'nlinum-mode-hook 'fix-nlinum-color)
 )
 
 
@@ -88,11 +97,6 @@
     (custom-set-variables)
   )
 
-
-; (defun my/neotree-hook (_unused)
-;   (linum-mode))
-; (add-hook 'neo-after-create-hook 'my/neotree-hook)
-; (add-hook 'neo-after-create-hook 'linum-mode)
 
 ; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
@@ -559,6 +563,7 @@
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
 (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
 
 (evil-mode 1)
 (setq evil-default-state 'emacs)
