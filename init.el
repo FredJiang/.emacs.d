@@ -27,24 +27,31 @@
 ;; 通用
 (column-number-mode 1)
 
-; (global-linum-mode 1) ; always show line numbers
-; (unless (display-graphic-p)
-;   (defun fix-linum-color ()
-;     (interactive)
-;     (setq linum-format "%4d\u2502")
-;     (set-face-attribute 'linum nil :foreground "white"))
-;   (add-hook 'linum-mode-hook 'fix-linum-color)
-; )
 
-(global-nlinum-mode 1) ; always show line numbers
-(unless (display-graphic-p)
-  (defun fix-nlinum-color ()
-    (interactive)
-    (setq nlinum-format "%4d\u2502")
-    (set-face-attribute 'linum nil :foreground "white"))
-  (add-hook 'nlinum-mode-hook 'fix-nlinum-color)
-)
-(add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-linum-mode 1) ; always show line numbers                               ;
+(unless (display-graphic-p)                                                    ;
+  (defun fix-linum-color ()                                                    ;
+    (interactive)                                                              ;
+    (setq linum-format "%4d\u2502")                                            ;
+    (set-face-attribute 'linum nil :foreground "white"))                       ;
+  (add-hook 'linum-mode-hook 'fix-linum-color)                                 ;
+)                                                                              ;
+                                                                               ;
+                                                                               ;
+                                                                               ;
+; (global-nlinum-mode 1) ; always show line numbers                            ;
+; (unless (display-graphic-p)                                                  ;
+;   (defun fix-nlinum-color ()                                                 ;
+;     (interactive)                                                            ;
+;     (setq nlinum-format "%4d\u2502")                                         ;
+;     (set-face-attribute 'linum nil :foreground "white"))                     ;
+;   (add-hook 'nlinum-mode-hook 'fix-nlinum-color)                             ;
+; )                                                                            ;
+; (add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))                    ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
