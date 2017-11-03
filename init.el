@@ -508,7 +508,7 @@
 
 
 (require 'grep)
-(grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/\\.git/*\" ! -path \"*/node_modules/*\" ! -path \"*/components/*\" -exec grep -nH -C 2 -e '' {} +" . 87))
+(grep-apply-setting 'grep-find-command '("find . -type f ! -path \"*/\\.git/*\" ! -path \"*/node_modules/*\" ! -path \"*/components/*\" -exec grep -nH -C 2 -e '' {} +" . 112))
 (grep-apply-setting 'grep-command "grep -nH -C 2 -e ")
 
 
