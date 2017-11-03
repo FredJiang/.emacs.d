@@ -181,6 +181,18 @@ else
 fi
 
 
+if which jslinter > /dev/null; then
+    echoMe 'jslinter has installed'
+else
+    if which npm > /dev/null; then
+        echoCo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install jslinter'
+                npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install jslinter
+    else
+        echoMe 'npm not exist'
+    fi
+fi
+
+
 if [ -d ~/.all-the-icons-fonts ]
 then
     echoMe "~/.all-the-icons-fonts exist"
