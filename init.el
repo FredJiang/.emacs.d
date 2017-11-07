@@ -63,6 +63,15 @@
 (add-to-list 'load-path "~/.emacs.d/mypackages")
 
 
+(add-to-list 'load-path "~/.emacs.d/mypackages/highlight-indent-guides")
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-auto-enabled nil)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-auto-character-face-perc 20)
+(set-face-foreground 'highlight-indent-guides-character-face "dimgray")
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+
 ; (if (display-graphic-p)
 ;     (load-GUI-theme))
 

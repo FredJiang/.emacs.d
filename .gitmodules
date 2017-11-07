@@ -25,3 +25,6 @@
 [submodule "mypackages/highlight-thing"]
 	path = mypackages/highlight-thing
 	url = https://github.com/fgeller/highlight-thing.el.git
+[submodule "mypackages/highlight-indent-guides"]
+	path = mypackages/highlight-indent-guides
+	url = https://github.com/DarthFennec/highlight-indent-guides.git
