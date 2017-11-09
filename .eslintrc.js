@@ -2,9 +2,12 @@ module.exports = {
   "extends": "standard",
   "globals": {
     "gLogger": true,
+    "gConfigs": true,
+    "gConfigsAct": true,
+    "gConfigsOrder": true,
     "gProjectDir": true,
-    "gProjectDirOrder": true,
-    "gProjectDirActivity": true
+    "gProjectDirAct": true,
+    "gProjectDirOrder": true
   },
   "rules": {
     "space-before-function-paren": ["error", {
