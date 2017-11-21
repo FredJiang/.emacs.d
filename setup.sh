@@ -149,8 +149,8 @@ install_the_silver_searcher
 
 echoCo 'cd ~/.emacs.d'
         cd ~/.emacs.d
-echoCo 'cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/'
-        cp ~/.emacs.d/mypackages/.jsbeautifyrc ~/
+echoCo 'cp ~/.emacs.d/.jsbeautifyrc ~/'
+        cp ~/.emacs.d/.jsbeautifyrc ~/
 
 
 echoCo 'cd'
