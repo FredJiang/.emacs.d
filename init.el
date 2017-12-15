@@ -660,6 +660,16 @@ there's a region, all lines that region covers will be duplicated."
 (dumb-jump-mode)
 (global-set-key (kbd "C-c g") 'dumb-jump-go)
 
+
+; https://github.com/FredJiang/emacs-wttrin.git
+(add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
+(require 'wttrin)
+(setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
+(setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
+(add-hook 'after-init-hook 'wttrinf)
+
+
+
 ; (list-matching-lines-default-context-lines 2)
 ; auto produced
 

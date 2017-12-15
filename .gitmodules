@@ -28,3 +28,6 @@
 [submodule "mypackages/highlight-indent-guides"]
 	path = mypackages/highlight-indent-guides
 	url = https://github.com/DarthFennec/highlight-indent-guides.git
+[submodule "mypackages/emacs-wttrin"]
+	path = mypackages/emacs-wttrin
+	url = https://github.com/FredJiang/emacs-wttrin.git
