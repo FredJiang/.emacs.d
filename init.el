@@ -666,8 +666,11 @@ there's a region, all lines that region covers will be duplicated."
 (require 'wttrin)
 (setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
 (setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
-(add-hook 'after-init-hook 'wttrinf)
-
+(defun wttrinOpen ()
+  "Display weather information for CITY."
+  (wttrin-query "Beijing")
+  (windmove-left))
+(add-hook 'after-init-hook 'wttrinOpen)
 
 
 ; (list-matching-lines-default-context-lines 2)
