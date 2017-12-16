@@ -438,7 +438,9 @@
 (define-key c-mode-base-map (kbd "C-c d") 'disaster)
 
 
-(exec-path-from-shell-initialize)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 
 
