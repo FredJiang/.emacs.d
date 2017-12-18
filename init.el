@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -664,13 +664,14 @@ there's a region, all lines that region covers will be duplicated."
 
 
 ; https://github.com/FredJiang/emacs-wttrin.git
-(add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
+; (add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
 (require 'wttrin)
 (setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
 (setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
 (defun wttrinOpen ()
   "Display weather information for CITY."
   (wttrin-query "Beijing")
+  (delete-other-windows)
   (windmove-left))
 (add-hook 'after-init-hook 'wttrinOpen)
 
