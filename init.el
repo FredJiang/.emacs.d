@@ -672,7 +672,8 @@ there's a region, all lines that region covers will be duplicated."
   "Display weather information for CITY."
   (wttrin-query "Beijing")
   (delete-other-windows)
-  (windmove-left))
+  (windmove-left)
+  (linum-mode))
 (add-hook 'after-init-hook 'wttrinOpen)
 
 
