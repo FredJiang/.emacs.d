@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -27,6 +27,18 @@
 ;; 通用
 (column-number-mode 1)
 
+
+; (set-language-environment "UTF-8")
+; (set-default-coding-systems 'utf-8)
+; (set-buffer-file-coding-system 'utf-8-unix)
+; (set-clipboard-coding-system 'utf-8-unix)
+; (set-file-name-coding-system 'utf-8-unix)
+; (set-keyboard-coding-system 'utf-8-unix)
+; (set-next-selection-coding-system 'utf-8-unix)
+; (set-selection-coding-system 'utf-8-unix)
+; (set-terminal-coding-system 'utf-8-unix)
+; (setq locale-coding-system 'utf-8)
+; (prefer-coding-system 'utf-8)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-linum-mode 1) ; always show line numbers                               ;
@@ -303,6 +315,14 @@
   '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))                  ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; https://github.com/smihica/emmet-mode                                        ;
+; emmet-mode                                                                   ;
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes       ;
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.     ;
+(global-set-key (kbd "C-c e") 'emmet-expand-line)                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
