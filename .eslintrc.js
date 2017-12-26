@@ -15,6 +15,17 @@ module.exports = {
       "named": "never",
       "asyncArrow": "always"
     }],
+    "key-spacing": ["error", {
+      "multiLine": {
+        "beforeColon": false,
+        "afterColon": true
+      },
+      "align": {
+        "beforeColon": true,
+        "afterColon": true,
+        "on": "colon"
+      }
+    }],
     // "camelcase": 0, // disable the rule
     // "semi": 0 // disable the rule
     // "semi": [2, "never"]
