@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -699,14 +699,95 @@ there's a region, all lines that region covers will be duplicated."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'meghanada)                                                           ;
-(add-hook 'java-mode-hook                                                      ;
-          (lambda ()                                                           ;
-            ;; meghanada-mode on                                               ;
-            (meghanada-mode t)                                                 ;
-            (setq c-basic-offset 2)                                            ;
-            (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))          ;
+; (require 'meghanada)                                                         ;
+; (add-hook 'java-mode-hook                                                    ;
+;           (lambda ()                                                         ;
+;             ;; meghanada-mode on                                             ;
+;             (meghanada-mode t)                                               ;
+;             (setq c-basic-offset 2)                                          ;
+;             (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))        ;
+                                                                               ;
+(use-package autodisass-java-bytecode                                          ;
+  :ensure t                                                                    ;
+  :defer t)                                                                    ;
+                                                                               ;
+; (use-package google-c-style                                                  ;
+;   :defer t                                                                   ;
+;   :ensure t                                                                  ;
+;   :commands                                                                  ;
+;   (google-set-c-style))                                                      ;
+                                                                               ;
+(use-package meghanada                                                         ;
+  :defer t                                                                     ;
+  :init                                                                        ;
+  (add-hook 'java-mode-hook                                                    ;
+            (lambda ()                                                         ;
+              (google-set-c-style)                                             ;
+              (google-make-newline-indent)                                     ;
+              (meghanada-mode t)                                               ;
+              (smartparens-mode t)                                             ;
+              (rainbow-delimiters-mode t)                                      ;
+              (highlight-symbol-mode t)                                        ;
+        ; (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))  ;
+              (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))        ;
+                                                                               ;
+  :config                                                                      ;
+  (use-package realgud                                                         ;
+    :ensure t)                                                                 ;
+  (setq indent-tabs-mode nil)                                                  ;
+  (setq tab-width 2)                                                           ;
+  (setq c-basic-offset 2)                                                      ;
+  (setq meghanada-server-remote-debug t)                                       ;
+  (setq meghanada-javac-xlint "-Xlint:all,-processing")                        ;
+  :bind                                                                        ;
+  (:map meghanada-mode-map                                                     ;
+        ("C-S-t" . meghanada-switch-testcase)                                  ;
+        ("M-RET" . meghanada-local-variable)                                   ;
+        ("C-M-." . helm-imenu)                                                 ;
+        ("M-r" . meghanada-reference)                                          ;
+        ("M-t" . meghanada-typeinfo)                                           ;
+        ("C-z" . hydra-meghanada/body))                                        ;
+  :commands                                                                    ;
+  (meghanada-mode))                                                            ;
+                                                                               ;
+(defhydra hydra-meghanada (:hint nil :exit t)                                  ;
+"                                                                              ;
+^Edit^                           ^Tast or Task^                                ;
+^^^^^^-------------------------------------------------------                  ;
+_f_: meghanada-compile-file      _m_: meghanada-restart                        ;
+_c_: meghanada-compile-project   _t_: meghanada-run-task                       ;
+_o_: meghanada-optimize-import   _j_: meghanada-run-junit-test-case            ;
+_s_: meghanada-switch-test-case  _J_: meghanada-run-junit-class                ;
+_v_: meghanada-local-variable    _R_: meghanada-run-junit-recent               ;
+_i_: meghanada-import-all        _r_: meghanada-reference                      ;
+_g_: magit-status                _T_: meghanada-typeinfo                       ;
+_l_: helm-ls-git-ls                                                            ;
+_q_: exit                                                                      ;
+"                                                                              ;
+  ("f" meghanada-compile-file)                                                 ;
+  ("m" meghanada-restart)                                                      ;
+                                                                               ;
+  ("c" meghanada-compile-project)                                              ;
+  ("o" meghanada-optimize-import)                                              ;
+  ("s" meghanada-switch-test-case)                                             ;
+  ("v" meghanada-local-variable)                                               ;
+  ("i" meghanada-import-all)                                                   ;
+                                                                               ;
+  ("g" magit-status)                                                           ;
+  ("l" helm-ls-git-ls)                                                         ;
+                                                                               ;
+  ("t" meghanada-run-task)                                                     ;
+  ("T" meghanada-typeinfo)                                                     ;
+  ("j" meghanada-run-junit-test-case)                                          ;
+  ("J" meghanada-run-junit-class)                                              ;
+  ("R" meghanada-run-junit-recent)                                             ;
+  ("r" meghanada-reference)                                                    ;
+                                                                               ;
+  ("q" exit)                                                                   ;
+  ("z" nil "leave"))                                                           ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
 
 ; https://github.com/FredJiang/emacs-wttrin.git
@@ -731,7 +812,19 @@ there's a region, all lines that region covers will be duplicated."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(case-replace nil)
  '(list-matching-lines-default-context-lines 2)
- ; '(case-fold-search nil)
- '(case-replace nil))
+ '(package-selected-packages
+   (quote
+    (hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(col-highlight ((t (:background "color-233"))))
+ '(hl-line ((t (:background "color-233"))))
+ '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
+ '(neo-dir-link-face ((t (:foreground "cyan"))))
+ '(neo-file-link-face ((t (:foreground "white")))))
