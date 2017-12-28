@@ -698,6 +698,8 @@ there's a region, all lines that region covers will be duplicated."
 (global-set-key (kbd "C-c g") 'dumb-jump-go)
 
 
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; (require 'meghanada)                                                         ;
 ; (add-hook 'java-mode-hook                                                    ;
@@ -711,6 +713,8 @@ there's a region, all lines that region covers will be duplicated."
   :ensure t                                                                    ;
   :defer t)                                                                    ;
                                                                                ;
+(add-to-list 'load-path "~/.emacs.d/mypackages/google-styleguide")             ;
+(require 'google-c-style)                                                      ;
 ; (use-package google-c-style                                                  ;
 ;   :defer t                                                                   ;
 ;   :ensure t                                                                  ;

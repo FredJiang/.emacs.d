@@ -31,3 +31,6 @@
 [submodule "mypackages/emacs-wttrin"]
 	path = mypackages/emacs-wttrin
 	url = https://github.com/FredJiang/emacs-wttrin.git
+[submodule "mypackages/google-styleguide"]
+	path = mypackages/google-styleguide
+	url = https://github.com/google/styleguide.git
