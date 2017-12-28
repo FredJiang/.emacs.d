@@ -1,26 +1,41 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-; <autoinstall> list the repositories containing them
-;; elpa
-(require 'package)
-(add-to-list 'package-archives 
-               '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize)
+; <autoinstall> list the repositories containing them                          ;
+;; elpa                                                                        ;
+(require 'package)                                                             ;
+(add-to-list 'package-archives                                                 ;
+               '("melpa-stable" . "http://stable.melpa.org/packages/") t)      ;
+(package-initialize)                                                           ;
+                                                                               ;
+; <autoinstall> fetch the list of packages available                           ;
+(unless package-archive-contents                                               ;
+  (package-refresh-contents))                                                  ;
+                                                                               ;
+; <autoinstall> install the missing packages                                   ;
+(dolist (package package-list)                                                 ;
+  (unless (package-installed-p package)                                        ;
+    (package-install package)))                                                ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-; <autoinstall> fetch the list of packages available 
-(unless package-archive-contents
-  (package-refresh-contents))
 
-; <autoinstall> install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This is only needed once, near the top of the file                          ;
+(eval-when-compile                                                             ;
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d           ;
+  ; (add-to-list 'load-path "<path where use-package is installed>")           ;
+  (require 'use-package))                                                      ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
