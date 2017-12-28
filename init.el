@@ -701,13 +701,13 @@ there's a region, all lines that region covers will be duplicated."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (require 'meghanada)                                                         ;
-; (add-hook 'java-mode-hook                                                    ;
-;           (lambda ()                                                         ;
-;             ;; meghanada-mode on                                             ;
-;             (meghanada-mode t)                                               ;
-;             (setq c-basic-offset 2)                                          ;
-;             (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))        ;
+(require 'meghanada)                                                           ;
+(add-hook 'java-mode-hook                                                      ;
+          (lambda ()                                                           ;
+            ;; meghanada-mode on                                               ;
+            (meghanada-mode t)                                                 ;
+            (setq c-basic-offset 2)                                            ;
+            (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))          ;
                                                                                ;
 (use-package autodisass-java-bytecode                                          ;
   :ensure t                                                                    ;
@@ -732,7 +732,6 @@ there's a region, all lines that region covers will be duplicated."
               (smartparens-mode t)                                             ;
               (rainbow-delimiters-mode t)                                      ;
               (highlight-symbol-mode t)                                        ;
-        ; (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))  ;
               (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))        ;
                                                                                ;
   :config                                                                      ;
