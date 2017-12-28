@@ -690,8 +690,7 @@ there's a region, all lines that region covers will be duplicated."
             ;; meghanada-mode on                                               ;
             (meghanada-mode t)                                                 ;
             (setq c-basic-offset 2)                                            ;
-            ;; use code format                                                 ;
-            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)));
+            (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))          ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
