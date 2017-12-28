@@ -705,6 +705,9 @@ there's a region, all lines that region covers will be duplicated."
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(add-to-list 'load-path "~/.emacs.d/mypackages/google-styleguide")
+(require 'google-c-style)
+
 (use-package autodisass-java-bytecode
   :ensure t
   :defer t)
@@ -714,6 +717,8 @@ there's a region, all lines that region covers will be duplicated."
   :init
   (add-hook 'java-mode-hook
             (lambda ()
+              (google-set-c-style)
+              (google-make-newline-indent)
               (meghanada-mode t)
               (global-set-key (kbd "C-c b") 'meghanada-code-beautify)))
 
