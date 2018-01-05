@@ -705,6 +705,7 @@ there's a region, all lines that region covers will be duplicated."
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (require 'highlight-symbol)
+(add-hook 'prog-mode-hook #'highlight-symbol-mode)
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
@@ -811,7 +812,7 @@ _q_: exit
  '(list-matching-lines-default-context-lines 2)
  '(package-selected-packages
    (quote
-    (hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
+    (realgud hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
