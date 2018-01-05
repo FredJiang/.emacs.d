@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode eslint-fix))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -704,8 +704,17 @@ there's a region, all lines that region covers will be duplicated."
 (require 'smartparens-config)
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
 (require 'highlight-symbol)
+(require 'highlight-symbol)
+(global-set-key [(control f3)] 'highlight-symbol)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 (add-hook 'prog-mode-hook #'highlight-symbol-mode)
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
@@ -812,7 +821,7 @@ _q_: exit
  '(list-matching-lines-default-context-lines 2)
  '(package-selected-packages
    (quote
-    (realgud hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
+    (eslint-fix realgud hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
