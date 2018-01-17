@@ -477,7 +477,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/mypackages/disaster")
 (require 'disaster)
-(define-key c-mode-base-map (kbd "C-c d") 'disaster)
+; (define-key c-mode-base-map (kbd "C-c d") 'disaster)
 
 
 
