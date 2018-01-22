@@ -437,8 +437,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
-
+(require 'ag)
 (setq ag-highlight-search t)
+(setq ag-arguments (append '("--before=1" "--after=1") ag-arguments))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
