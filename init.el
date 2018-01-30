@@ -90,6 +90,19 @@
 (add-to-list 'load-path "~/.emacs.d/mypackages")
 
 
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(require 'vline)
+(require 'hl-line+)
+(require 'col-highlight)
+(require 'crosshairs)
+(crosshairs t)
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
+
+
+
+
+
 (add-to-list 'load-path "~/.emacs.d/mypackages/highlight-indent-guides")
 (require 'highlight-indent-guides)
 (setq highlight-indent-guides-auto-enabled nil)
