@@ -96,7 +96,7 @@
 (require 'hl-line+)
 (require 'col-highlight)
 (require 'crosshairs)
-(crosshairs t)
+; (crosshairs t) ; 显示行号有问题
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
