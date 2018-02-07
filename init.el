@@ -817,6 +817,16 @@ _q_: exit
 
 
 
+
+(defun fwrite-region ()
+  (interactive)
+  (write-region (region-beginning) (region-end) "/tmp/emacsCopyFredJiang.txt")
+  (write-region "\n"               nil          "/tmp/emacsCopyFredJiang.txt" 'append))
+
+
+
+
+
 ; https://github.com/FredJiang/emacs-wttrin.git
 ; (add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
 (require 'wttrin)
