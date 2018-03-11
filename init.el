@@ -845,7 +845,7 @@ _q_: exit
 (defun fwrite-region ()
   (interactive)
   (write-region (region-beginning) (region-end) "/tmp/emacsCopyFredJiang.txt")
-  (write-region "\n"               nil          "/tmp/emacsCopyFredJiang.txt" 'append)
+  ; (write-region "\n"               nil          "/tmp/emacsCopyFredJiang.txt" 'append)
   (shell-command "ecopy fromEmacs"))
 
 
