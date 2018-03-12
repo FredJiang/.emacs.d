@@ -59,6 +59,8 @@
 ; (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
 ; helm-dash-install-docset
+; helm-dash-activate-docset
+(setq helm-dash-browser-func 'eww)
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
