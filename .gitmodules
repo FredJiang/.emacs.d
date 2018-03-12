@@ -37,3 +37,6 @@
 [submodule "mypackages/origami"]
 	path = mypackages/origami
 	url = https://github.com/gregsexton/origami.el.git
+[submodule "mypackages/dash-at-point"]
+	path = mypackages/dash-at-point
+	url = https://github.com/stanaka/dash-at-point.git
