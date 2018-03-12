@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode eslint-fix ag dash s))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode eslint-fix ag dash s paradox))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -23,6 +23,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+; 更新 package
+(auto-package-update-maybe) ; 定期自动更新所有 package
+; paradox-upgrade-packages ;      手动更新所有 package
+; auto-package-update-now ;       手动更新所有 package
+; package-menu-mark-xxx ; 先标记，再做特殊处理
+(require 'paradox)
+(paradox-enable)
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -878,7 +887,8 @@ _q_: exit
  '(list-matching-lines-default-context-lines 2)
  '(package-selected-packages
    (quote
-    (eslint-fix realgud hydra wttrin windresize window-numbering web-mode web-beautify use-package undo-tree smooth-scrolling smex projectile nlinum multiple-cursors meghanada magit js2-mode ido-completing-read+ highlight-parentheses highlight-indentation helm godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode dumb-jump company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update))))
+    (paradox eslint-fix realgud hydra wttrin windresize window-numbering web-beautify use-package undo-tree smooth-scrolling smex projectile multiple-cursors magit highlight-parentheses highlight-indentation godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update)))
+ '(paradox-github-token t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
