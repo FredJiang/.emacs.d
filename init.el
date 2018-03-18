@@ -61,6 +61,11 @@
 ; helm-dash-install-docset
 ; helm-dash-activate-docset
 (setq helm-dash-browser-func 'eww)
+
+(defun helm-dash-use-go-doc ()
+  (interactive)
+  (setq-local helm-dash-docsets '("Go")))
+(add-hook 'go-mode-hook 'helm-dash-use-go-doc)
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
@@ -487,15 +492,15 @@
 (require 'helm-config)
 (helm-mode 1)
 ; (global-set-key (kbd "M-x") #'helm-M-x)
-; (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-; (global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+
 
 
 (require 'ag)
@@ -689,7 +694,10 @@
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
 (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-(evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+; (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+(evil-define-key 'normal neotree-mode-map (kbd "a") 'neotree-stretch-toggle)
+(evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-refresh)
+
 
 (evil-mode 1)
 (setq evil-default-state 'emacs)
