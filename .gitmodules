@@ -40,3 +40,6 @@
 [submodule "mypackages/dash-at-point"]
 	path = mypackages/dash-at-point
 	url = https://github.com/stanaka/dash-at-point.git
+[submodule "mypackages/helm-swoop"]
+	path = mypackages/helm-swoop
+	url = https://github.com/ShingoFukuyama/helm-swoop.git
