@@ -902,7 +902,7 @@ there's a region, all lines that region covers will be duplicated."
         ("C-S-t" . meghanada-switch-testcase)
         ("M-RET" . meghanada-local-variable)
         ("C-M-." . helm-imenu)
-        ("M-r" . meghanada-reference)
+        ; ("M-r" . meghanada-reference)
         ("M-t" . meghanada-typeinfo)
         ("C-z" . hydra-meghanada/body))
   :commands
