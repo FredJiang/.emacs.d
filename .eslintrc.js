@@ -2,7 +2,6 @@ module.exports = {
   'extends' : 'standard',
   'globals' : {
     'gLogger'          : true,
-    'gConfigs'         : true,
     'gConfigsAct'      : true,
     'gConfigsOrder'    : true,
     'gProjectDir'      : true,
