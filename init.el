@@ -96,14 +96,14 @@
 ; (prefer-coding-system 'utf-8)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; (global-linum-mode 1) ; always show line numbers                             ;
-; (unless (display-graphic-p)                                                  ;
-;   (defun fix-linum-color ()                                                  ;
-;     (interactive)                                                            ;
-;     (setq linum-format "%4d\u2502")                                          ;
-;     (set-face-attribute 'linum nil :foreground "white"))                     ;
-;   (add-hook 'linum-mode-hook 'fix-linum-color)                               ;
-; )                                                                            ;
+(global-linum-mode 1) ; always show line numbers                               ;
+(unless (display-graphic-p)                                                    ;
+  (defun fix-linum-color ()                                                    ;
+    (interactive)                                                              ;
+    (setq linum-format "%4d\u2502")                                            ;
+    (set-face-attribute 'linum nil :foreground "white"))                       ;
+  (add-hook 'linum-mode-hook 'fix-linum-color)                                 ;
+)                                                                              ;
                                                                                ;
 ; (global-nlinum-mode 1) ; always show line numbers                            ;
 ; (unless (display-graphic-p)                                                  ;
@@ -115,14 +115,12 @@
 ; )                                                                            ;
 ; (add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))                    ;
 
-(global-linum-mode 1) ; always show line numbers
-; (setq linum-relative-user-format "%4d\u2502") 
-; (set-face-attribute 'linum nil :foreground "white")
-(require 'linum-relative)
-(linum-on) 
-(linum-relative-on)
-(custom-set-faces '(linum-relative-current-face
-                    ((t :inherit linum :foreground "red" :background "white" :weight bold))))
+; (global-linum-mode 1) ; always show line numbers
+; (require 'linum-relative)
+; (linum-on) 
+; ; (linum-relative-on)
+; (custom-set-faces '(linum-relative-current-face
+;                     ((t :inherit linum :foreground "red" :background "white" :weight bold))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
