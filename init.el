@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s paradox helm-dash helm-ag helm-projectile ghub))
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s paradox helm-dash helm-ag helm-projectile ghub))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -96,16 +96,14 @@
 ; (prefer-coding-system 'utf-8)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-linum-mode 1) ; always show line numbers                               ;
-(unless (display-graphic-p)                                                    ;
-  (defun fix-linum-color ()                                                    ;
-    (interactive)                                                              ;
-    (setq linum-format "%4d\u2502")                                            ;
-    (set-face-attribute 'linum nil :foreground "white"))                       ;
-  (add-hook 'linum-mode-hook 'fix-linum-color)                                 ;
-)                                                                              ;
-                                                                               ;
-                                                                               ;
+; (global-linum-mode 1) ; always show line numbers                             ;
+; (unless (display-graphic-p)                                                  ;
+;   (defun fix-linum-color ()                                                  ;
+;     (interactive)                                                            ;
+;     (setq linum-format "%4d\u2502")                                          ;
+;     (set-face-attribute 'linum nil :foreground "white"))                     ;
+;   (add-hook 'linum-mode-hook 'fix-linum-color)                               ;
+; )                                                                            ;
                                                                                ;
 ; (global-nlinum-mode 1) ; always show line numbers                            ;
 ; (unless (display-graphic-p)                                                  ;
@@ -116,6 +114,15 @@
 ;   (add-hook 'nlinum-mode-hook 'fix-nlinum-color)                             ;
 ; )                                                                            ;
 ; (add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))                    ;
+
+(global-linum-mode 1) ; always show line numbers
+; (setq linum-relative-user-format "%4d\u2502") 
+; (set-face-attribute 'linum nil :foreground "white")
+(require 'linum-relative)
+(linum-on) 
+(linum-relative-on)
+(custom-set-faces '(linum-relative-current-face
+                    ((t :inherit linum :foreground "red" :background "white" :weight bold))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
