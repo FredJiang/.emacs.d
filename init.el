@@ -969,19 +969,22 @@ _q_: exit
 
 ; https://github.com/FredJiang/emacs-wttrin.git
 ; (add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
-; (require 'wttrin)
-; (setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
-; (setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
-; (defun wttrinOpen ()
-;   "Display weather information for CITY."
-;   (wttrin-query "Beijing")
-;   (delete-other-windows)
-;   (windmove-left)
-;   (linum-mode))
-; (add-hook 'after-init-hook 'wttrinOpen)
+(require 'wttrin)
+(setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
+(setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
+(defun wttrinOpen ()
+  "Display weather information for CITY."
+  (wttrin-query "Beijing")
+  ; (delete-other-windows)
+  ; (windmove-left)
+  ; (linum-mode)
+  (windmove-left)
+  (delete-window)
+  (windmove-left)
+  (linum-mode)
+  )
+(add-hook 'after-init-hook 'wttrinOpen)
 
-; neotree 使用
-(linum-mode)
 
 ; (list-matching-lines-default-context-lines 2)
 ; auto produced
