@@ -978,7 +978,7 @@ _q_: exit
   ; (delete-other-windows)
   ; (windmove-left)
   ; (linum-mode)
-  (windmove-left)
+  (windmove-up)
   (delete-window)
   (windmove-left)
   (linum-mode)
