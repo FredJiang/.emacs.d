@@ -975,13 +975,13 @@ _q_: exit
 (defun wttrinOpen ()
   "Display weather information for CITY."
   (wttrin-query "Beijing")
-  ; (delete-other-windows)
-  ; (windmove-left)
-  ; (linum-mode)
-  (windmove-up)
-  (delete-window)
+  (delete-other-windows)
   (windmove-left)
   (linum-mode)
+  ; (windmove-up)
+  ; (delete-window)
+  ; (windmove-left)
+  ; (linum-mode)
   )
 (add-hook 'after-init-hook 'wttrinOpen)
 
