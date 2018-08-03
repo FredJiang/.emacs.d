@@ -1,79 +1,78 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s paradox helm-dash helm-ag helm-projectile ghub))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-; <autoinstall> list the repositories containing them                          ;
-;; elpa                                                                        ;
-(require 'package)                                                             ;
-(add-to-list 'package-archives                                                 ;
-               '("melpa-stable" . "http://stable.melpa.org/packages/") t)      ;
-(package-initialize)                                                           ;
-                                                                               ;
-; <autoinstall> fetch the list of packages available                           ;
-(unless package-archive-contents                                               ;
-  (package-refresh-contents))                                                  ;
-                                                                               ;
-; <autoinstall> install the missing packages                                   ;
-(dolist (package package-list)                                                 ;
-  (unless (package-installed-p package)                                        ;
-    (package-install package)))                                                ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(setq package-list '(undo-tree window-numbering projectile multiple-cursors company
+  auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling
+  web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc
+  go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode
+  irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump
+  nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens
+  rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s
+  xref-js2
+  paradox helm-dash helm-ag helm-projectile ghub))
 
 
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
-;; This is only needed once, near the top of the file                          ;
-(eval-when-compile                                                             ;
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d           ;
-  ; (add-to-list 'load-path "<path where use-package is installed>")           ;
-  (require 'use-package))                                                      ;
+; <autoinstall> list the repositories containing them                                                           
+;; elpa                                                                                                         
+(require 'package)                                                                                              
+(add-to-list 'package-archives                                                                                  
+               '("melpa-stable" . "http://stable.melpa.org/packages/") t)                                       
+(package-initialize)                                                                                            
+                                                                                                                
+; <autoinstall> fetch the list of packages available                                                            
+(unless package-archive-contents                                                                                
+  (package-refresh-contents))                                                                                   
+                                                                                                                
+; <autoinstall> install the missing packages                                                                    
+(dolist (package package-list)                                                                                  
+  (unless (package-installed-p package)                                                                         
+    (package-install package)))                                                                                 
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
-; 更新 package
-(auto-package-update-maybe) ; 定期自动更新所有 package
-; paradox-upgrade-packages ;      手动更新所有 package
-; auto-package-update-now ;       手动更新所有 package
-; package-menu-mark-xxx ; 先标记，再做特殊处理
-(require 'paradox)
-(paradox-enable)
+;; This is only needed once, near the top of the file                                                           
+(eval-when-compile                                                                                              
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d                                            
+  ; (add-to-list 'load-path "<path where use-package is installed>")                                            
+  (require 'use-package))                                                                                       
+                                                                                                                
+                                                                                                                
+                                                                                                                
+; 更新 package                                                                                                  
+(auto-package-update-maybe) ; 定期自动更新所有 package                                                          
+; paradox-upgrade-packages ;      手动更新所有 package                                                          
+; auto-package-update-now ;       手动更新所有 package                                                          
+; package-menu-mark-xxx ; 先标记，再做特殊处理                                                                  
+(require 'paradox)                                                                                              
+(paradox-enable)                                                                                                
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
-; http://spacemacs.org/layers/+tools/dash/README.html
-(add-to-list 'load-path "~/.emacs.d/mypackages/dash-at-point")
-(autoload 'dash-at-point "dash-at-point"
-          "Search the word at point with Dash." t nil)
-; (global-set-key "\C-cd" 'dash-at-point)
-; (global-set-key "\C-ce" 'dash-at-point-with-docset)
-
-; helm-dash-install-docset
-; helm-dash-activate-docset
-(setq helm-dash-browser-func 'eww)
-
-(defun helm-dash-use-go-doc ()
-  (interactive)
-  (setq-local helm-dash-docsets '("Go")))
-(add-hook 'go-mode-hook 'helm-dash-use-go-doc)
+; http://spacemacs.org/layers/+tools/dash/README.html                                                           
+(add-to-list 'load-path "~/.emacs.d/mypackages/dash-at-point")                                                  
+(autoload 'dash-at-point "dash-at-point"                                                                        
+          "Search the word at point with Dash." t nil)                                                          
+; (global-set-key "\C-cd" 'dash-at-point)                                                                       
+; (global-set-key "\C-ce" 'dash-at-point-with-docset)                                                           
+                                                                                                                
+; helm-dash-install-docset                                                                                      
+; helm-dash-activate-docset                                                                                     
+(setq helm-dash-browser-func 'eww)                                                                              
+                                                                                                                
+(defun helm-dash-use-go-doc ()                                                                                  
+  (interactive)                                                                                                 
+  (setq-local helm-dash-docsets '("Go")))                                                                       
+(add-hook 'go-mode-hook 'helm-dash-use-go-doc)                                                                  
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
-
-
-
-
-
-
-
 
 
 
@@ -396,6 +395,14 @@
                                                                                ;
 (eval-after-load 'css-mode                                                     ;
   '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))                  ;
+                                                                               ;
+                                                                               ;
+                                                                               ;
+                                                                               ;
+(require 'xref-js2)                                                            ;
+(define-key js2-mode-map (kbd "M-.") nil)                                      ;
+(add-hook 'js2-mode-hook (lambda ()                                            ;
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))           ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -998,7 +1005,7 @@ _q_: exit
  '(list-matching-lines-default-context-lines 2)
  '(package-selected-packages
    (quote
-    (helm-ag paradox eslint-fix realgud hydra windresize window-numbering web-beautify use-package undo-tree smooth-scrolling smex projectile multiple-cursors magit highlight-parentheses highlight-indentation godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update)))
+    (xref-js2 helm-ag paradox eslint-fix realgud hydra windresize window-numbering web-beautify use-package undo-tree smooth-scrolling smex projectile multiple-cursors magit highlight-parentheses highlight-indentation godoctor go-errcheck go-eldoc go-autocomplete flycheck-irony exec-path-from-shell emmet-mode company-irony-c-headers company-irony autodisass-java-bytecode auto-package-update)))
  '(paradox-github-token t))
 
 (custom-set-faces

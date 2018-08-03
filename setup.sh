@@ -11,6 +11,16 @@ function echoMe {
 }
 
 
+function echoWa {
+    echo -e "\033[33m$@\033[0m"
+}
+
+
+function echoEr {
+    echo -e "\033[31m$@\033[0m"
+}
+
+
 # echoCo 'git pull'
 #         git pull
 
@@ -164,7 +174,7 @@ else
         echoCo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify'
                 npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install js-beautify
     else
-        echoMe 'npm not exist'
+        echoEr 'npm not exist'
     fi
 fi
 
@@ -176,7 +186,7 @@ else
         echoCo 'npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint'
                 npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist -g install eslint
     else
-        echoMe 'npm not exist'
+        echoEr 'npm not exist'
     fi
 fi
 
