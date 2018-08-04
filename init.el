@@ -8,18 +8,21 @@
   irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump
   nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens
   rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s
-  xref-js2
+  xref-js2 tide
   paradox helm-dash helm-ag helm-projectile ghub))
 
 
 
 
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+; https://mirror.tuna.tsinghua.edu.cn/help/elpa/
 ; <autoinstall> list the repositories containing them                                                           
 ;; elpa                                                                                                         
 (require 'package)                                                                                              
+; (add-to-list 'package-archives                                                                                
+;                '("melpa-stable" . "http://stable.melpa.org/packages/") t)                                     
 (add-to-list 'package-archives                                                                                  
-               '("melpa-stable" . "http://stable.melpa.org/packages/") t)                                       
+               '("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/") t)                  
 (package-initialize)                                                                                            
                                                                                                                 
 ; <autoinstall> fetch the list of packages available                                                            
@@ -43,7 +46,6 @@
   (require 'use-package))                                                                                       
                                                                                                                 
                                                                                                                 
-                                                                                                                
 ; 更新 package                                                                                                  
 (auto-package-update-maybe) ; 定期自动更新所有 package                                                          
 ; paradox-upgrade-packages ;      手动更新所有 package                                                          
@@ -51,6 +53,61 @@
 ; package-menu-mark-xxx ; 先标记，再做特殊处理                                                                  
 (require 'paradox)                                                                                              
 (paradox-enable)                                                                                                
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
+
+
+
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(add-to-list 'load-path "~/.emacs.d/mypackages")                                                                
+                                                                                                                
+(defalias 'yes-or-no-p 'y-or-n-p)                                                                               
+                                                                                                                
+;; auto-complete                                                                                                
+(ac-config-default)                                                                                             
+                                                                                                                
+(column-number-mode 1)                                                                                          
+                                                                                                                
+; (set-language-environment "UTF-8")                                                                            
+; (set-default-coding-systems 'utf-8)                                                                           
+; (set-buffer-file-coding-system 'utf-8-unix)                                                                   
+; (set-clipboard-coding-system 'utf-8-unix)                                                                     
+; (set-file-name-coding-system 'utf-8-unix)                                                                     
+; (set-keyboard-coding-system 'utf-8-unix)                                                                      
+; (set-next-selection-coding-system 'utf-8-unix)                                                                
+; (set-selection-coding-system 'utf-8-unix)                                                                     
+; (set-terminal-coding-system 'utf-8-unix)                                                                      
+; (setq locale-coding-system 'utf-8)                                                                            
+; (prefer-coding-system 'utf-8)                                                                                 
+                                                                                                                
+                                                                                                                
+(global-linum-mode 1) ; always show line numbers                                                                
+(unless (display-graphic-p)                                                                                     
+  (defun fix-linum-color ()                                                                                     
+    (interactive)                                                                                               
+    (setq linum-format "%4d\u2502")                                                                             
+    (set-face-attribute 'linum nil :foreground "white"))                                                        
+  (add-hook 'linum-mode-hook 'fix-linum-color)                                                                  
+)                                                                                                               
+                                                                                                                
+; (global-nlinum-mode 1) ; always show line numbers                                                             
+; (unless (display-graphic-p)                                                                                   
+;   (defun fix-nlinum-color ()                                                                                  
+;     (interactive)                                                                                             
+;     (setq nlinum-format "%4d\u2502")                                                                          
+;     (set-face-attribute 'linum nil :foreground "white"))                                                      
+;   (add-hook 'nlinum-mode-hook 'fix-nlinum-color)                                                              
+; )                                                                                                             
+; (add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))                                                     
+                                                                                                                
+; (global-linum-mode 1) ; always show line numbers                                                              
+; (require 'linum-relative)                                                                                     
+; (linum-on)                                                                                                    
+; ; (linum-relative-on)                                                                                         
+; (custom-set-faces '(linum-relative-current-face                                                               
+;                     ((t :inherit linum :foreground "red" :background "white" :weight bold))))                 
+                                                                                                                
+                                                                                                                
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
@@ -77,84 +134,26 @@
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-;; 通用
-(column-number-mode 1)
-
-
-; (set-language-environment "UTF-8")
-; (set-default-coding-systems 'utf-8)
-; (set-buffer-file-coding-system 'utf-8-unix)
-; (set-clipboard-coding-system 'utf-8-unix)
-; (set-file-name-coding-system 'utf-8-unix)
-; (set-keyboard-coding-system 'utf-8-unix)
-; (set-next-selection-coding-system 'utf-8-unix)
-; (set-selection-coding-system 'utf-8-unix)
-; (set-terminal-coding-system 'utf-8-unix)
-; (setq locale-coding-system 'utf-8)
-; (prefer-coding-system 'utf-8)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-linum-mode 1) ; always show line numbers                               ;
-(unless (display-graphic-p)                                                    ;
-  (defun fix-linum-color ()                                                    ;
-    (interactive)                                                              ;
-    (setq linum-format "%4d\u2502")                                            ;
-    (set-face-attribute 'linum nil :foreground "white"))                       ;
-  (add-hook 'linum-mode-hook 'fix-linum-color)                                 ;
-)                                                                              ;
-                                                                               ;
-; (global-nlinum-mode 1) ; always show line numbers                            ;
-; (unless (display-graphic-p)                                                  ;
-;   (defun fix-nlinum-color ()                                                 ;
-;     (interactive)                                                            ;
-;     (setq nlinum-format "%4d\u2502")                                         ;
-;     (set-face-attribute 'linum nil :foreground "white"))                     ;
-;   (add-hook 'nlinum-mode-hook 'fix-nlinum-color)                             ;
-; )                                                                            ;
-; (add-hook 'eshell-mode-hook (lambda () (nlinum-mode -1)))                    ;
-
-; (global-linum-mode 1) ; always show line numbers
-; (require 'linum-relative)
-; (linum-on) 
-; ; (linum-relative-on)
-; (custom-set-faces '(linum-relative-current-face
-;                     ((t :inherit linum :foreground "red" :background "white" :weight bold))))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-
-;; auto-complete
-(ac-config-default)
-
-
-(add-to-list 'load-path "~/.emacs.d/mypackages")
-
-
-
 ; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
-(require 'vline)
-(require 'hl-line+)
-(require 'col-highlight)
-(require 'crosshairs)
-; (crosshairs t) ; 显示行号有问题
+(require 'vline)                                                                                                
+(require 'hl-line+)                                                                                             
+(require 'col-highlight)                                                                                        
+(require 'crosshairs)                                                                                           
+; (crosshairs t) ; 显示行号有问题                                                                               
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 
 
-
-(add-to-list 'load-path "~/.emacs.d/mypackages/highlight-indent-guides")
-(require 'highlight-indent-guides)
-(setq highlight-indent-guides-auto-enabled nil)
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-character-face-perc 20)
-(set-face-foreground 'highlight-indent-guides-character-face "dimgray")
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(add-to-list 'load-path "~/.emacs.d/mypackages/highlight-indent-guides")                                        
+(require 'highlight-indent-guides)                                                                              
+(setq highlight-indent-guides-auto-enabled nil)                                                                 
+(setq highlight-indent-guides-method 'character)                                                                
+(setq highlight-indent-guides-auto-character-face-perc 20)                                                      
+(set-face-foreground 'highlight-indent-guides-character-face "dimgray")                                         
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)                                                        
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 ; (if (display-graphic-p)
 ;     (load-GUI-theme))
@@ -416,6 +415,29 @@
 
 
 
+
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(defun setup-tide-mode ()                                                                                       
+  (interactive)                                                                                                 
+  (tide-setup)                                                                                                  
+  (flycheck-mode +1)                                                                                            
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))                                               
+  (eldoc-mode +1)                                                                                               
+  (tide-hl-identifier-mode +1)                                                                                  
+  ;; company is an optional dependency. You have to                                                             
+  ;; install it separately via package-install                                                                  
+  ;; `M-x package-install [ret] company`                                                                        
+  (company-mode +1))                                                                                            
+                                                                                                                
+;; aligns annotation to the right hand side                                                                     
+(setq company-tooltip-align-annotations t)                                                                      
+                                                                                                                
+;; formats the buffer before saving                                                                             
+(add-hook 'before-save-hook 'tide-format-before-save)                                                           
+                                                                                                                
+(add-hook 'typescript-mode-hook #'setup-tide-mode)                                                              
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 
