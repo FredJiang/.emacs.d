@@ -1,5 +1,8 @@
 module.exports = {
   'extends' : 'standard',
+  "plugins": [
+    "html"
+  ],
   'globals' : {
     'gLogger'          : true,
     'gConfigsAct'      : true,
