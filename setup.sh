@@ -218,3 +218,22 @@ echoCo 'cp ~/.emacs.d/.eslintrc.js ~/'
         cp ~/.emacs.d/.eslintrc.js ~/
 
 
+
+echoCo 'cd'
+        cd
+echoCo 'npm install --save-dev \
+                               eslint@4.7.2 \
+                               eslint-config-standard@10.2.1 \
+                               eslint-plugin-html@4.0.5 \
+                               eslint-plugin-import@2.7.0 \
+                               eslint-plugin-node@5.1.1 \
+                               eslint-plugin-promise@3.5.0 \
+                               eslint-plugin-standard@3.0.1'
+        npm install --save-dev \
+                               eslint@4.7.2 \
+                               eslint-config-standard@10.2.1 \
+                               eslint-plugin-html@4.0.5 \
+                               eslint-plugin-import@2.7.0 \
+                               eslint-plugin-node@5.1.1 \
+                               eslint-plugin-promise@3.5.0 \
+                               eslint-plugin-standard@3.0.1
