@@ -3,13 +3,21 @@
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
 (setq package-list '(undo-tree window-numbering projectile multiple-cursors company
   auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling
-  web-beautify highlight-parentheses js2-mode ido-completing-read+ smex go-mode go-eldoc
-  go-autocomplete go-errcheck godoctor flycheck exec-path-from-shell magit web-mode
+  web-beautify highlight-parentheses ido-completing-read+ smex
+  flycheck exec-path-from-shell magit web-mode
   irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump
   nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens
-  rainbow-delimiters highlight-symbol groovy-mode gradle-mode eslint-fix ag dash s
+  rainbow-delimiters highlight-symbol groovy-mode gradle-mode ag dash s
   xref-js2 tide
+  elpy ; python
+  eslint-fix js2-mode ; javascript
+  go-mode go-eldoc go-autocomplete go-errcheck godoctor ; golang
   paradox helm-dash helm-ag helm-projectile ghub))
+
+
+
+
+; package-refresh-contents
 
 
 
@@ -437,6 +445,15 @@
 (add-hook 'before-save-hook 'tide-format-before-save)                                                           
                                                                                                                 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)                                                              
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
+
+
+
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+; python
+; https://github.com/jorgenschaefer/elpy
+(elpy-enable)                                                                                                   
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
