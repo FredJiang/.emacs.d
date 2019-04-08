@@ -29,8 +29,10 @@
 (require 'package)                                                                                              
 ; (add-to-list 'package-archives                                                                                
 ;                '("melpa-stable" . "http://stable.melpa.org/packages/") t)                                     
-(add-to-list 'package-archives                                                                                  
-               '("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/") t)                  
+; (add-to-list 'package-archives                                                                                
+;                '("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/") t)                
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")                            
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))                        
 (package-initialize)                                                                                            
                                                                                                                 
 ; <autoinstall> fetch the list of packages available                                                            
