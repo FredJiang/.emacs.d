@@ -1045,25 +1045,28 @@ _q_: exit
 
 
 
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+; https://github.com/FredJiang/emacs-wttrin.git                                ;
+; (add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")                ;
+(require 'wttrin)                                                              ;
+(setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))                 ;
+(setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))           ;
+(defun wttrinOpen ()                                                           ;
+  "Display weather information for CITY."                                      ;
+  (wttrin-query "Beijing")                                                     ;
+  (delete-other-windows)                                                       ;
+  (windmove-left)                                                              ;
+  (linum-mode)                                                                 ;
+  ; (windmove-up)                                                              ;
+  ; (delete-window)                                                            ;
+  ; (windmove-left)                                                            ;
+  ; (linum-mode)                                                               ;
+  )                                                                            ;
+; 由于网络问题，可能会导致 emacs 启动很慢                                      ;
+; (add-hook 'after-init-hook 'wttrinOpen)                                      ;
+                                                                               ;
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
-
-; https://github.com/FredJiang/emacs-wttrin.git
-; (add-to-list 'load-path "~/.emacs.d/mypackages/emacs-wttrin")
-(require 'wttrin)
-(setq wttrin-default-cities '("Beijing" "Daoxian" "Yongzhou"))
-(setq wttrin-default-accept-language '("Accept-Language" . "zh-CN"))
-(defun wttrinOpen ()
-  "Display weather information for CITY."
-  (wttrin-query "Beijing")
-  (delete-other-windows)
-  (windmove-left)
-  (linum-mode)
-  ; (windmove-up)
-  ; (delete-window)
-  ; (windmove-left)
-  ; (linum-mode)
-  )
-(add-hook 'after-init-hook 'wttrinOpen)
 
 
 ; (list-matching-lines-default-context-lines 2)
