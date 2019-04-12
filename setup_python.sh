@@ -31,5 +31,5 @@ install_elpa_elpy
 
 
 # https://github.com/jorgenschaefer/elpy
-echoCo 'sudo -H bash -c "$(which pip) install rope jedi flake8 autopep8 yapf"'
-        sudo -H bash -c "$(which pip) install rope jedi flake8 autopep8 yapf"
+echoCo 'sudo -H bash -c "$(which pip) install rope jedi flake8 autopep8 yapf pylint"'
+        sudo -H bash -c "$(which pip) install rope jedi flake8 autopep8 yapf pylint"

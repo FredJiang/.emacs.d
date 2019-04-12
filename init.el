@@ -1,18 +1,50 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; <autoinstall> list the packages you want
 ; auto-package-update  error: Package `emacs-24.4' is unavailable
-(setq package-list '(undo-tree window-numbering projectile multiple-cursors company
-  auto-complete exec-path-from-shell auto-package-update windresize smooth-scrolling
-  web-beautify highlight-parentheses ido-completing-read+ smex
-  flycheck exec-path-from-shell magit web-mode
-  irony company-irony company-irony-c-headers flycheck-irony yasnippet helm dumb-jump
-  nlinum linum-relative wttrin emmet-mode meghanada use-package hydra smartparens
-  rainbow-delimiters highlight-symbol groovy-mode gradle-mode ag dash s
-  xref-js2 tide
+(setq package-list '(undo-tree projectile multiple-cursors 
+  auto-complete 
+  company 
+  company-irony 
+  flycheck 
+  flycheck-irony 
+  irony 
+  yasnippet 
+  ido-completing-read+ 
+  exec-path-from-shell
+  highlight-parentheses smex
+  highlight-symbol
+  magit
+  dumb-jump
+  nlinum 
+  linum-relative wttrin emmet-mode hydra
+  rainbow-delimiters ag dash s
+  smartparens
+  tide
+  smooth-scrolling ; window
+  window-numbering ; window
+  windresize ; window
+  helm ; helm
+  helm-ag ; helm
+  helm-dash ; helm
+  helm-projectile ; helm
+  company-irony-c-headers ; c
+  auto-package-update ; package
+  use-package ; package
+  gradle-mode ; java
+  groovy-mode ; java
+  meghanada ; java
   elpy ; python
-  eslint-fix js2-mode ; javascript
-  go-mode go-eldoc go-autocomplete go-errcheck godoctor ; golang
-  paradox helm-dash helm-ag helm-projectile ghub))
+  eslint-fix ; javascript
+  js2-mode ; javascript
+  web-beautify ; javascript
+  web-mode ; javascript
+  xref-js2 ; javascript
+  go-autocomplete ; golang
+  go-eldoc ; golang
+  go-errcheck ; golang
+  go-mode ; golang
+  godoctor ; golang
+  paradox ghub))
 
 
 
