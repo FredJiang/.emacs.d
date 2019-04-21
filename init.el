@@ -488,6 +488,9 @@
 ; python
 ; https://github.com/jorgenschaefer/elpy
 (elpy-enable)                                                                                                   
+(add-hook 'elpy-mode-hook
+          (lambda () 
+             (semantic-mode 0)))
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
@@ -1094,4 +1097,7 @@ _q_: exit
  '(hl-line ((t (:background "color-233"))))
  '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
  '(neo-dir-link-face ((t (:foreground "cyan"))))
+ ; semantic 中，python、java 的 import 报错
+ ; '(semantic-decoration-on-unknown-includes ((t (:background "black" :foreground "red" :underline t))))
+ '(semantic-decoration-on-unknown-includes ((t (:background "red"))))
  '(neo-file-link-face ((t (:foreground "white")))))
