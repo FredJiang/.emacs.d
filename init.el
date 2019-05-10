@@ -20,30 +20,31 @@
   rainbow-delimiters ag dash s
   smartparens
   tide
-  smooth-scrolling ; window
-  window-numbering ; window
-  windresize ; window
-  helm ; helm
-  helm-ag ; helm
-  helm-dash ; helm
-  helm-projectile ; helm
+  zenburn-theme           ; theme
+  smooth-scrolling        ; window
+  window-numbering        ; window
+  windresize              ; window
+  helm                    ; helm
+  helm-ag                 ; helm
+  helm-dash               ; helm
+  helm-projectile         ; helm
   company-irony-c-headers ; c
-  auto-package-update ; package
-  use-package ; package
-  gradle-mode ; java
-  groovy-mode ; java
-  meghanada ; java
-  elpy ; python
-  eslint-fix ; javascript
-  js2-mode ; javascript
-  web-beautify ; javascript
-  web-mode ; javascript
-  xref-js2 ; javascript
-  go-autocomplete ; golang
-  go-eldoc ; golang
-  go-errcheck ; golang
-  go-mode ; golang
-  godoctor ; golang
+  auto-package-update     ; package
+  use-package             ; package
+  gradle-mode             ; java
+  groovy-mode             ; java
+  meghanada               ; java
+  elpy                    ; python
+  eslint-fix              ; javascript
+  js2-mode                ; javascript
+  web-beautify            ; javascript
+  web-mode                ; javascript
+  xref-js2                ; javascript
+  go-autocomplete         ; golang
+  go-eldoc                ; golang
+  go-errcheck             ; golang
+  go-mode                 ; golang
+  godoctor                ; golang
   paradox ghub))
 
 
@@ -1071,6 +1072,10 @@ _q_: exit
                                                                                ;
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(load-theme 'zenburn t)
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
 ; (list-matching-lines-default-context-lines 2)
