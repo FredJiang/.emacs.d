@@ -20,6 +20,7 @@
   rainbow-delimiters ag dash s
   smartparens
   tide
+  yaml-mode               ; yaml
   zenburn-theme           ; theme
   smooth-scrolling        ; window
   window-numbering        ; window
@@ -238,7 +239,7 @@
      '(neo-file-link-face ((t (:foreground "white")))))
     (custom-set-variables)
   )
-
+(setq neo-window-fixed-size nil)
 
 ; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
@@ -1077,6 +1078,13 @@ _q_: exit
 (load-theme 'zenburn t)
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-hook 'yaml-mode-hook
+  '(lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 ; (list-matching-lines-default-context-lines 2)
 ; auto produced

@@ -70,12 +70,12 @@ function install_clang {
         echoMe 'clang has installed'
     else
         if which yum > /dev/null; then
-            echoCo 'sudo yum install epel-release'
-                    sudo yum install epel-release
-            echoCo 'sudo yum install -y clang'
-                    sudo yum install -y clang
-            echoCo 'sudo yum install -y clang-devel'
-                    sudo yum install -y clang-devel
+            echoCo 'sudo yum install      -y epel-release'
+                    sudo yum install      -y epel-release
+            echoCo 'sudo yum install      -y clang'
+                    sudo yum install      -y clang
+            echoCo 'sudo yum install      -y clang-devel'
+                    sudo yum install      -y clang-devel
             echoCo 'sudo yum groupinstall -y "Development Tools"'
                     sudo yum groupinstall -y "Development Tools"
         else
@@ -106,15 +106,15 @@ function install_the_silver_searcher {
         echoMe 'ag has installed'
     else
         if which brew > /dev/null; then
-            echoCo 'brew install the_silver_searcher'
-                    brew install the_silver_searcher
+            echoCo 'brew install            the_silver_searcher'
+                    brew install            the_silver_searcher
         else
             echoMe 'brew not exist'
         fi
 
         if which yum > /dev/null; then
-            echoCo 'sudo yum install -y the_silver_searcher'
-                    sudo yum install -y the_silver_searcher
+            echoCo 'sudo yum install     -y the_silver_searcher'
+                    sudo yum install     -y the_silver_searcher
         else
             echoMe 'yum not exist'
         fi
@@ -193,9 +193,9 @@ fi
 
 if [ -d ~/.all-the-icons-fonts ]
 then
-    echoMe "~/.all-the-icons-fonts exist"
+    echoMe "      ~/.all-the-icons-fonts exist"
 else
-    echoMe "~/.all-the-icons-fonts not exist"
+    echoMe "      ~/.all-the-icons-fonts not exist"
 
     echoCo "mkdir ~/.all-the-icons-fonts"
             mkdir ~/.all-the-icons-fonts
