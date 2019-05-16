@@ -231,15 +231,15 @@
 (neotree-toggle)
 (global-set-key (kbd "<f8>") 'neotree-toggle)
 ; terminal 中的 color 问题
-(unless (display-graphic-p)
-    (custom-set-faces
-     '(col-highlight ((t (:background "color-233"))))
-     '(hl-line ((t (:background "color-233"))))
-     '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
-     '(neo-dir-link-face ((t (:foreground "cyan"))))
-     '(neo-file-link-face ((t (:foreground "white")))))
-    (custom-set-variables)
-  )
+; (unless (display-graphic-p)
+;     (custom-set-faces
+;      '(col-highlight ((t (:background "color-233"))))
+;      '(hl-line ((t (:background "color-233"))))
+;      '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
+;      '(neo-dir-link-face ((t (:foreground "cyan"))))
+;      '(neo-file-link-face ((t (:foreground "white")))))
+;     (custom-set-variables)
+;   )
 (setq neo-window-fixed-size nil)
 
 ; (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
@@ -1118,7 +1118,9 @@ _q_: exit
  '(hl-line ((t (:background "color-233"))))
  '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
  '(neo-dir-link-face ((t (:foreground "cyan"))))
+ '(neo-file-link-face ((t (:foreground "white"))))
  ; semantic 中，python、java 的 import 报错
  ; '(semantic-decoration-on-unknown-includes ((t (:background "black" :foreground "red" :underline t))))
- '(semantic-decoration-on-unknown-includes ((t (:background "red"))))
+ '(semantic-decoration-on-unknown-includes ((t (:background nil     :foreground nil   :underline t))))
  '(neo-file-link-face ((t (:foreground "white")))))
+
