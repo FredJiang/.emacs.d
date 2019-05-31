@@ -20,6 +20,7 @@
   rainbow-delimiters ag dash s
   smartparens
   tide
+  feature-mode
   dockerfile-mode         ; dockerfile
   yaml-mode               ; yaml
   zenburn-theme           ; theme
@@ -961,6 +962,12 @@ there's a region, all lines that region covers will be duplicated."
 ; (global-set-key [(control f3)] 'highlight-symbol)
 ; (global-set-key [(shift f3)] 'highlight-symbol-prev)
 ; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
+
+
+; ↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧↧
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
