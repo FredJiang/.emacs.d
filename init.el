@@ -38,6 +38,7 @@
   groovy-mode             ; java
   meghanada               ; java
   elpy                    ; python
+  jedi                    ; python
   eslint-fix              ; javascript
   js2-mode                ; javascript
   web-beautify            ; javascript
@@ -495,6 +496,14 @@
 (add-hook 'elpy-mode-hook
           (lambda () 
              (semantic-mode 0)))
+
+
+; https://tkf.github.io/emacs-jedi/latest/
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+; Install Python server
+; M-x jedi:install-server in Emacs
+(setq jedi:environment-root "python2_7")
 ; ↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥↥
 
 
