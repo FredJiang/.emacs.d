@@ -1135,8 +1135,5 @@ _q_: exit
  '(lazy-highlight ((t (:background "black" :foreground "white" :underline t))))
  '(neo-dir-link-face ((t (:foreground "cyan"))))
  '(neo-file-link-face ((t (:foreground "white"))))
- ; semantic 中，python、java 的 import 报错
- ; '(semantic-decoration-on-unknown-includes ((t (:background "black" :foreground "red" :underline t))))
- '(semantic-decoration-on-unknown-includes ((t (:background nil     :foreground nil   :underline t))))
- '(neo-file-link-face ((t (:foreground "white")))))
+ '(semantic-decoration-on-unknown-includes ((t (:background nil :foreground nil :underline t)))))
 

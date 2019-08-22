@@ -2,6 +2,7 @@
 *~
 .last-package-update-day
 .mc-lists.el
+.python-environments
 .tern-port
 .tern-project
 ac-comphist.dat
@@ -9,12 +10,12 @@ auto-save-list
 elpa
 eshell
 history
+history.el
 ido.last
 irony/bin
 meghanada
 projectile-bookmarks.eld
+recentf
 semanticdb
 tramp
 url/cache
-recentf
-history.el
